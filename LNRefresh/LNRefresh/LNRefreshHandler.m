@@ -65,7 +65,7 @@
 + (void)setAllHeaderAnimatorStateImages:(NSArray *)stateImages state:(LNRefreshState)state duration:(NSTimeInterval)duration {
     if (stateImages) {
         NSDictionary *dic = @{@"images":stateImages, @"duration":[NSNumber numberWithDouble:duration]};
-        [[LNRefreshHandler defaultHandler].stateImages setValue:dic forKey:[NSString stringWithFormat:@"%ld",state]];
+        [[LNRefreshHandler defaultHandler].stateImages setValue:dic forKey:[NSString stringWithFormat:@"%ld",(long)state]];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:LNRefreshChangeNotification object:nil];
 }

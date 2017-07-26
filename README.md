@@ -28,11 +28,12 @@ GIF picture from [华尔街见闻](https://wallstreetcn.com/)
 
 #### Usually style
 <p align="left">
-    <img src="./images/demo_1.gif" style="zoom:50%" align=center/>
+    <img src="./images/demo_1.gif" style="zoom:60%" align=center/>
 </p>
+
 #### Dynamically change the style
 <p align="left">
-    <img src="./images/demo_2.gif" style="zoom:50%" align=center/>
+    <img src="./images/demo_2.gif" style="zoom:60%" align=center/>
 </p>
 
 ## Introduction

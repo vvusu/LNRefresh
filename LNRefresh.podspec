@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/wedxz/LNRefresh"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  #s.screenshots  = "https://github.com/wedxz/LNRefresh/blob/master/images/demo_1.gif", "https://github.com/wedxz/LNRefresh/blob/master/images/demo_2.gif"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
   #
 
   # s.license      = "MIT (example)"
-  # s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.license      = { :type => "GPLV3", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/wedxz/LNRefresh", :tag => s.version }
+  s.source       = { :git => "https://github.com/wedxz/LNRefresh.git", :tag => s.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
