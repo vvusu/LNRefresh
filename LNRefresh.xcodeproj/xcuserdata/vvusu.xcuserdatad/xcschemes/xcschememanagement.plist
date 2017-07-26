@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>LNRefresh-Resources.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>34</integer>
+		</dict>
+		<key>LNRefresh-Universal.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>33</integer>
+		</dict>
+		<key>LNRefresh.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>32</integer>
+		</dict>
+		<key>LNRefreshDemo.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>35</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>AF29B5771F0C900300348F99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF29B5801F0C900300348F99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF29B5921F0C905000348F99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AFC94B6F1F14CB5600D635BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AFC94B871F14CB5700D635BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AFC94B921F14CB5700D635BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AFFF4C771F219EBA009B4736</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

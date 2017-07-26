@@ -1,0 +1,163 @@
+<p align="center">
+  <img src="./images/banner.png">
+</p>
+
+<p align="center">
+<a href="#Demo">Demo</a> -
+<a href="#Introduction">Introduction</a> -
+<a href="#Documents">Documents</a> -
+<a href="#Contribution">Contribution</a>
+</p>
+    
+<p align="center">
+<a href="http://cocoadocs.org/docsets/LNTheme"><img src="https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
+<a href="https://developer.apple.com/ios"><img src="https://img.shields.io/badge/platform-iOS%207%2B-blue.svg?style=flat"></a>
+<a href="https://github.com/wedxz/LNTheme/tree/1.0.0"><img src="https://img.shields.io/badge/release-1.0.0-blue.svg"></a>
+<a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg"></a>
+</p>
+
+# LNRefresh
+LNRefresh Is a lightweight, can dynamically expand the drop-down refresh component
+
+#### Support what kinds of controls to refresh
+`UIScrollView`、`UITableView`、`UICollectionView`、`UIWebView`、`UITextView`
+
+## Demo
+GIF picture from [华尔街见闻](https://wallstreetcn.com/)
+
+#### Usually style
+<p align="left">
+    <img src="./images/demo_1.gif" style="zoom:50%" align=center/>
+</p>
+#### Dynamically change the style
+<p align="left">
+    <img src="./images/demo_2.gif" style="zoom:50%" align=center/>
+</p>
+
+## Introduction
+### CocoaPods
+Installation with CocoaPods:
+
+```
+pod 'LNRefresh'
+```
+### Carthage
+Installation with Cartfile:
+
+```
+github "vvusu/LNRefresh"
+```
+## Documents
+#### How to use LNRefresh
+###### Add pull to refresh
+```
+__weak typeof (self) wself = self;
+//UITableView
+[self.tableView addPullToRefresh:^{
+  [wself pullToRefresh];
+}];
+
+//UICollectionView
+[self.collectionView addPullToRefresh:^{
+  [wself pullToRefresh];
+}];
+
+//UIWebView
+[self.webView.scrollView addPullToRefresh:^{
+   [wself.webView reload];
+}];
+```
+###### End Pull to refresh
+```
+//UITableView
+[self.tableView endRefreshing];
+
+//UICollectionView
+[self.collectionView endRefreshing];
+
+//UIWebView
+[self.webView.scrollView endRefreshing];
+```
+###### Add Loading more
+```
+//UITableView
+[self.tableView addInfiniteScrolling:^{
+  [wself loadMoreRefresh];
+}];
+
+//UICollectionView
+[self.collectionView addInfiniteScrolling:^{
+  [wself loadMoreRefresh];
+}];
+```
+###### End Loading more
+```
+//UITableView
+[self.tableView endLoadingMore];
+
+//UICollectionView
+[self.tableView endLoadingMore];
+```
+###### No More data
+```
+//UITableView
+[self.tableView noticeNoMoreData];
+
+//UICollectionView
+[self.tableView noticeNoMoreData];
+```
+###### Auto Refresh
+```
+[self.scrollView startRefreshing];
+```
+###### Change the trigger to pull the refresh distance
+```
+self.tableView.ln_header.animator.trigger = 100;
+```
+
+#### Global Settings
+###### Set the GIF image
+```
++ (void)setAllHeaderAnimatorStateImages:(NSArray *)stateImages
+                                  state:(LNRefreshState)state;
+
++ (void)setAllHeaderAnimatorStateImages:(NSArray *)stateImages
+                                  state:(LNRefreshState)state
+                               duration:(NSTimeInterval)duration;
+```
+###### Change the global pull-down refresh pattern state
+```
++ (void)changeAllHeaderAnimatorType:(LNRefreshHeaderType)type;
+
++ (void)changeAllHeaderAnimatorType:(LNRefreshHeaderType)type
+                            bgImage:(UIImage *)image;
+
++ (void)changeAllHeaderAnimatorType:(LNRefreshHeaderType)type
+                            bgImage:(UIImage *)image
+                        incremental:(CGFloat)incremental;
+```
+
+#### Customize RefreshAnimator
+You Need to inherit LNHeaderAnimator，Rewrite the following method.
+
+```
+- (void)setupHeaderView_DIY;
+- (void)layoutHeaderView_DIY;
+- (void)refreshHeaderView_DIY:(LNRefreshState)state;
+- (void)endRefreshAnimation_DIY:(LNRefreshComponent *)view;
+- (void)startRefreshAnimation_DIY:(LNRefreshComponent *)view;
+- (void)refreshView_DIY:(LNRefreshComponent *)view progress:(CGFloat)progress;
+```
+Example: `LNHeaderDIYAnimator.m`
+
+#### Analysis
+Example: `LNHeaderAnimator+Analysis.m`
+
+## Contribution
+[vvusu](https://github.com/wedxz)
+## License
+<a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg"></a>
+Copyright (c) 2017 vvusu 
+
+

@@ -1,0 +1,23 @@
+{
+    "en": {
+        "LNRefreshLoading" : "Loading",
+        "LNRefreshPullToRefresh" : "Pull to refresh",
+        "LNRefreshReleaseToRefresh" : "Release to refresh",
+        "LNRefreshLoadingMore" : "Load more",
+        "LNRefreshNoMoreData" : "No more data",
+    },
+    "zh-Hans": {
+        "LNRefreshLoading" : "加载中",
+        "LNRefreshPullToRefresh" : "下拉刷新",
+        "LNRefreshReleaseToRefresh" : "释放刷新",
+        "LNRefreshLoadingMore" : "加载更多",
+        "LNRefreshNoMoreData" : "没有更多内容",
+    },
+    "zh-Hant": {
+        "LNRefreshLoading" : "加載中",
+        "LNRefreshPullToRefresh" : "下拉刷新",
+        "LNRefreshReleaseToRefresh" : "釋放刷新",
+        "LNRefreshLoadingMore" : "加載更多",
+        "LNRefreshNoMoreData" : "沒有更多數據",
+    }
+}
