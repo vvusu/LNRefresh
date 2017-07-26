@@ -106,9 +106,8 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
+  # s.resources = "LNRefresh/LNRefresh-Resources/*"
+  # s.preserve_paths = "LNRefresh/LNRefresh-Resources/"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
