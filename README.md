@@ -3,10 +3,10 @@
 </p>
 
 <p align="center">
-<a href="#Demo">Demo</a> -
-<a href="#Introduction">Introduction</a> -
-<a href="#Documents">Documents</a> -
-<a href="#Contribution">Contribution</a>
+<a href="#demo">Demo</a> -
+<a href="#installation">Installation</a> -
+<a href="#documents">Documents</a> -
+<a href="#contribution">Contribution</a>
 </p>
     
 <p align="center">
@@ -36,7 +36,7 @@ GIF picture from [华尔街见闻](https://wallstreetcn.com/)
     <img src="./images/demo_2.gif" style="zoom:60%" align=center/>
 </p>
 
-## Introduction
+## Installation
 ### CocoaPods
 Installation with CocoaPods:
 
@@ -47,7 +47,7 @@ pod 'LNRefresh'
 Installation with Cartfile:
 
 ```
-github "vvusu/LNRefresh"
+github "wedxz/LNRefresh"
 ```
 ## Documents
 #### How to use LNRefresh
