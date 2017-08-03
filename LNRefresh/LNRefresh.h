@@ -19,6 +19,7 @@ FOUNDATION_EXPORT const unsigned char LNRefreshVersionString[];
 
 #if __has_include(<LNRefresh/LNRefresh.h>)
 
+#import <LNRefresh/LNRefreshConst.h>
 #import <LNRefresh/NSObject+LNRefresh.h>
 #import <LNRefresh/LNRefreshComponent.h>
 #import <LNRefresh/LNRefreshHeader.h>
@@ -30,6 +31,7 @@ FOUNDATION_EXPORT const unsigned char LNRefreshVersionString[];
 
 #else
 
+#import "LNRefreshConst.h"
 #import "NSObject+LNRefresh.h"
 #import "LNRefreshComponent.h"
 #import "LNRefreshHeader.h"

@@ -30,6 +30,8 @@
 		AF29B5891F0C900300348F99 /* LNRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = AF29B57B1F0C900300348F99 /* LNRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF29B5C41F0CC04600348F99 /* NSObject+LNRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = AF29B5C21F0CC04600348F99 /* NSObject+LNRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF29B5C51F0CC04600348F99 /* NSObject+LNRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B5C31F0CC04600348F99 /* NSObject+LNRefresh.m */; };
+		AF6450E71F32C0B700DB8520 /* LNRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = AF6450E51F32C0B700DB8520 /* LNRefreshConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF6450E81F32C0B700DB8520 /* LNRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6450E61F32C0B700DB8520 /* LNRefreshConst.m */; };
 		AFA03C581F272DAA00896ED8 /* lnrefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = AFA03C571F272DAA00896ED8 /* lnrefresh.json */; };
 		AFA03C621F27546500896ED8 /* LNRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AFA03C611F27546500896ED8 /* LNRefresh.bundle */; };
 		AFC94B491F1470C800D635BC /* LNRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = AFC94B471F1470C800D635BC /* LNRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,6 +88,8 @@
 		AF29B57C1F0C900300348F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF29B5C21F0CC04600348F99 /* NSObject+LNRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LNRefresh.h"; sourceTree = "<group>"; };
 		AF29B5C31F0CC04600348F99 /* NSObject+LNRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LNRefresh.m"; sourceTree = "<group>"; };
+		AF6450E51F32C0B700DB8520 /* LNRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNRefreshConst.h; sourceTree = "<group>"; };
+		AF6450E61F32C0B700DB8520 /* LNRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRefreshConst.m; sourceTree = "<group>"; };
 		AFA03C571F272DAA00896ED8 /* lnrefresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lnrefresh.json; sourceTree = "<group>"; };
 		AFA03C5B1F2734BB00896ED8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		AFA03C5C1F2734BB00896ED8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				AFC94BBE1F1720B300D635BC /* LNFooterAnimator.m */,
 				AFEDEA121F220315003EBEA8 /* LNRefreshHandler.h */,
 				AFEDEA131F220315003EBEA8 /* LNRefreshHandler.m */,
+				AF6450E51F32C0B700DB8520 /* LNRefreshConst.h */,
+				AF6450E61F32C0B700DB8520 /* LNRefreshConst.m */,
 			);
 			path = LNRefresh;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF29B5891F0C900300348F99 /* LNRefresh.h in Headers */,
+				AF6450E71F32C0B700DB8520 /* LNRefreshConst.h in Headers */,
 				AFEDEA141F220315003EBEA8 /* LNRefreshHandler.h in Headers */,
 				AFC94BA51F14D0BE00D635BC /* LNRefreshAnimator.h in Headers */,
 				AFC94BAC1F16154C00D635BC /* LNRefreshHeader.h in Headers */,
@@ -437,6 +444,7 @@
 				AFC94BBC1F17209D00D635BC /* LNHeaderAnimator.m in Sources */,
 				AFC94BC01F1720B300D635BC /* LNFooterAnimator.m in Sources */,
 				AF29B5C51F0CC04600348F99 /* NSObject+LNRefresh.m in Sources */,
+				AF6450E81F32C0B700DB8520 /* LNRefreshConst.m in Sources */,
 				AFC94BA61F14D0BE00D635BC /* LNRefreshAnimator.m in Sources */,
 				AFEDEA151F220315003EBEA8 /* LNRefreshHandler.m in Sources */,
 				AFC94BB11F16157300D635BC /* LNRefreshFooter.m in Sources */,
@@ -622,7 +630,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vvusu.xcode.LNRefresh;
@@ -648,7 +656,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vvusu.xcode.LNRefresh;

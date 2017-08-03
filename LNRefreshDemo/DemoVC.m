@@ -144,6 +144,7 @@ static NSUInteger num = 0;
 }
 
 #pragma mark - UITableView datasource and delegate
+
 - (void)createTableView {
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, LNViewW, LNViewH) style:UITableViewStylePlain];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableVCCell"];
@@ -214,6 +215,7 @@ static NSUInteger num = 0;
 }
 
 #pragma mark - UICollectionView
+
 - (void)createCollectionView {
     CGFloat itemW = (self.view.frame.size.width - 40) / 3.0 - 1;
     CGFloat itemH = itemW * 87 / 61 + 20;
@@ -286,6 +288,7 @@ static NSUInteger num = 0;
 }
 
 #pragma mark - UIWebView
+
 - (void)createWebView {
     self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 64, LNViewW, LNViewH)];
     self.webView.backgroundColor = LNViewBGColor;
@@ -311,6 +314,7 @@ static NSUInteger num = 0;
 }
 
 #pragma mark - UITextView 
+
 - (void)createTextView {
     self.textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 64, LNViewW, LNViewH)];
     self.textView.alwaysBounceVertical = YES;

@@ -6,15 +6,8 @@
 //  Copyright © 2017 vvusu. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-UIKIT_EXTERN NSString *const LNRefreshLoading;
-UIKIT_EXTERN NSString *const LNRefreshPullToRefresh;
-UIKIT_EXTERN NSString *const LNRefreshReleaseToRefresh;
-UIKIT_EXTERN NSString *const LNRefreshLoadingMore;
-UIKIT_EXTERN NSString *const LNRefreshNoMoreData;
-UIKIT_EXTERN NSString *const LNRefreshChangeNotification;
+#import "LNRefreshConst.h"
 
 typedef NS_ENUM(NSInteger, LNRefreshState) {
     LNRefreshState_Normal = 0,

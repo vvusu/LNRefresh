@@ -10,20 +10,12 @@
 #import "LNRefreshComponent.h"
 #import "NSObject+LNRefresh.h"
 
-NSString *const LNRefreshLoading = @"LNRefreshLoading";
-NSString *const LNRefreshPullToRefresh = @"LNRefreshPullToRefresh";
-NSString *const LNRefreshReleaseToRefresh = @"LNRefreshReleaseToRefresh";
-NSString *const LNRefreshLoadingMore = @"LNRefreshLoadingMore";
-NSString *const LNRefreshNoMoreData = @"LNRefreshNoMoreData";
-
-NSString *const LNRefreshChangeNotification = @"com.lnrefresh.changenotification";
-
 @implementation LNRefreshAnimator
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.trigger = 50.0f;
-        self.incremental = 50.0f;
+        self.trigger = LNRefreshTrigger;
+        self.incremental = LNRefreshIncremental;
         self.ignoreGlobSetting = NO;
         self.state = LNRefreshState_Normal;
     }
@@ -60,9 +52,11 @@ NSString *const LNRefreshChangeNotification = @"com.lnrefresh.changenotification
         [view removeFromSuperview];
     }
 }
+
 - (void)layoutSubviews {}
 - (void)endRefreshAnimation:(LNRefreshComponent *)view {}
 - (void)startRefreshAnimation:(LNRefreshComponent *)view {}
 - (void)refreshView:(LNRefreshComponent *)view progress:(CGFloat)progress {}
 - (void)refreshView:(LNRefreshComponent *)view state:(LNRefreshState)state {}
+
 @end

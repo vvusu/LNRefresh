@@ -38,6 +38,11 @@
         },
         {
           'type': 'file',
+          'name': "LNRefreshConst.h",
+          'external-contents': "/Users/vvusu/Downloads/GitHub/iOSSDK/LNRefresh/LNRefresh/LNRefresh/LNRefreshConst.h"
+        },
+        {
+          'type': 'file',
           'name': "LNRefreshFooter.h",
           'external-contents': "/Users/vvusu/Downloads/GitHub/iOSSDK/LNRefresh/LNRefresh/LNRefresh/LNRefreshFooter.h"
         },

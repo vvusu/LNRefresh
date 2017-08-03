@@ -32,6 +32,17 @@
     NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:&error];
     NSArray *languages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
     NSString *currentLanguage = languages.firstObject;
+    if ([currentLanguage hasPrefix:@"en"]) {
+        currentLanguage = @"en";
+    } else if ([currentLanguage hasPrefix:@"zh"]) {
+        // 简体中文
+        if ([currentLanguage rangeOfString:@"Hans"].location != NSNotFound) {
+            currentLanguage = @"zh-Hans";
+        } //繁體中文(zh-Hant\zh-HK\zh-TW)
+        else {
+            currentLanguage = @"zh-Hant";
+        }
+    }
     NSDictionary *localizedStringDic = [jsonDic valueForKey:currentLanguage];
     if (!localizedStringDic) {
         localizedStringDic = [jsonDic valueForKey:@"en"];
