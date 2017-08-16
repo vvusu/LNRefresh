@@ -196,15 +196,7 @@ static const char LNRefreshFooterKey = '\0';
 
 #pragma mark - LNRefreshHeader 下拉
 - (LNRefreshHeader *)addPullToRefresh:(LNRefreshComponentBlock)block {
-    if (!self.ln_header) {
-        LNRefreshHeader *header = [LNRefreshHeader initWithFrame:CGRectZero block:block];
-        CGPoint offset = self.contentOffset;
-        header.frame = CGRectMake(offset.x, -header.animator.incremental + offset.y, self.bounds.size.width, header.animator.incremental);
-        header.animator.animatorView = header;
-        self.ln_header = header;
-        [self insertSubview:header atIndex:0];
-    }
-    return self.ln_header;
+    return [self addPullToRefresh:[[LNHeaderAnimator alloc] init] block:block];
 }
 
 - (LNRefreshHeader *)addPullToRefresh:(LNHeaderAnimator *)animater block:(LNRefreshComponentBlock)block {
@@ -221,15 +213,7 @@ static const char LNRefreshFooterKey = '\0';
 
 #pragma mark - LNRefreshFooter 上拉
 - (LNRefreshFooter *)addInfiniteScrolling:(LNRefreshComponentBlock)block {
-    if (!self.ln_footer) {
-        LNRefreshFooter *footer = [LNRefreshFooter initWithFrame:CGRectZero block:block];
-        CGPoint offset = self.contentOffset;
-        footer.frame = CGRectMake(offset.x, self.contentSize.height + self.contentInset.bottom - offset.y, self.bounds.size.width, footer.animator.incremental);
-        footer.animator.animatorView = footer;
-        self.ln_footer = footer;
-        [self insertSubview:self.ln_footer atIndex:0];
-    }
-    return self.ln_footer;
+    return [self addInfiniteScrolling:[[LNFooterAnimator alloc] init] block:block];
 }
 
 - (LNRefreshFooter *)addInfiniteScrolling:(LNFooterAnimator *)animater block:(LNRefreshComponentBlock)block {
