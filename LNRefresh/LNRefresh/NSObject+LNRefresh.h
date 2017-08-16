@@ -40,6 +40,7 @@
 @property (nonatomic, strong) LNRefreshFooter *ln_footer;
 
 - (LNRefreshHeader *)addPullToRefresh:(LNRefreshComponentBlock)block;
+- (LNRefreshHeader *)addPullToRefreshTypeDIY:(LNRefreshComponentBlock)block;
 - (LNRefreshHeader *)addPullToRefresh:(LNHeaderAnimator *)animater block:(LNRefreshComponentBlock)block;
 - (LNRefreshFooter *)addInfiniteScrolling:(LNRefreshComponentBlock)block;
 - (LNRefreshFooter *)addInfiniteScrolling:(LNFooterAnimator *)animater block:(LNRefreshComponentBlock)block;

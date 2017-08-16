@@ -24,8 +24,6 @@
 /* Begin PBXBuildFile section */
 		AF1F98FD1F1C63590074E638 /* LNRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF29B5781F0C900300348F99 /* LNRefresh.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		AF1F99001F1CAA660074E638 /* DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1F98FF1F1CAA660074E638 /* DemoVC.m */; };
-		AF1F99181F20779E0074E638 /* LNHeaderDIYAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1F99131F20779E0074E638 /* LNHeaderDIYAnimator.m */; };
-		AF1F991A1F20779E0074E638 /* YLoadingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1F99171F20779E0074E638 /* YLoadingPanel.m */; };
 		AF1F991E1F2077D80074E638 /* LNHeaderAnimator+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1F991D1F2077D80074E638 /* LNHeaderAnimator+Analysis.m */; };
 		AF29B5891F0C900300348F99 /* LNRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = AF29B57B1F0C900300348F99 /* LNRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF29B5C41F0CC04600348F99 /* NSObject+LNRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = AF29B5C21F0CC04600348F99 /* NSObject+LNRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +32,10 @@
 		AF6450E81F32C0B700DB8520 /* LNRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6450E61F32C0B700DB8520 /* LNRefreshConst.m */; };
 		AFA03C581F272DAA00896ED8 /* lnrefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = AFA03C571F272DAA00896ED8 /* lnrefresh.json */; };
 		AFA03C621F27546500896ED8 /* LNRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AFA03C611F27546500896ED8 /* LNRefresh.bundle */; };
+		AFA7D5681F4423FE00FAFA50 /* LNHeaderDIYAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA7D5641F4423FE00FAFA50 /* LNHeaderDIYAnimator.h */; };
+		AFA7D5691F4423FE00FAFA50 /* LNHeaderDIYAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA7D5651F4423FE00FAFA50 /* LNHeaderDIYAnimator.m */; };
+		AFA7D56A1F4423FE00FAFA50 /* YLoadingPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA7D5661F4423FE00FAFA50 /* YLoadingPanel.h */; };
+		AFA7D56B1F4423FE00FAFA50 /* YLoadingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA7D5671F4423FE00FAFA50 /* YLoadingPanel.m */; };
 		AFC94B491F1470C800D635BC /* LNRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = AFC94B471F1470C800D635BC /* LNRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFC94B4A1F1470C800D635BC /* LNRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC94B481F1470C800D635BC /* LNRefreshComponent.m */; };
 		AFC94B741F14CB5700D635BC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC94B731F14CB5700D635BC /* main.m */; };
@@ -77,10 +79,6 @@
 /* Begin PBXFileReference section */
 		AF1F98FE1F1CAA660074E638 /* DemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC.h; sourceTree = "<group>"; };
 		AF1F98FF1F1CAA660074E638 /* DemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC.m; sourceTree = "<group>"; };
-		AF1F99121F20779E0074E638 /* LNHeaderDIYAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderDIYAnimator.h; sourceTree = "<group>"; };
-		AF1F99131F20779E0074E638 /* LNHeaderDIYAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderDIYAnimator.m; sourceTree = "<group>"; };
-		AF1F99161F20779E0074E638 /* YLoadingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLoadingPanel.h; sourceTree = "<group>"; };
-		AF1F99171F20779E0074E638 /* YLoadingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLoadingPanel.m; sourceTree = "<group>"; };
 		AF1F991C1F2077D80074E638 /* LNHeaderAnimator+Analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LNHeaderAnimator+Analysis.h"; sourceTree = "<group>"; };
 		AF1F991D1F2077D80074E638 /* LNHeaderAnimator+Analysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LNHeaderAnimator+Analysis.m"; sourceTree = "<group>"; };
 		AF29B5781F0C900300348F99 /* LNRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LNRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +94,10 @@
 		AFA03C5D1F2734C000896ED8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		AFA03C5E1F2734C100896ED8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		AFA03C611F27546500896ED8 /* LNRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LNRefresh.bundle; sourceTree = "<group>"; };
+		AFA7D5641F4423FE00FAFA50 /* LNHeaderDIYAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderDIYAnimator.h; sourceTree = "<group>"; };
+		AFA7D5651F4423FE00FAFA50 /* LNHeaderDIYAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderDIYAnimator.m; sourceTree = "<group>"; };
+		AFA7D5661F4423FE00FAFA50 /* YLoadingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLoadingPanel.h; sourceTree = "<group>"; };
+		AFA7D5671F4423FE00FAFA50 /* YLoadingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLoadingPanel.m; sourceTree = "<group>"; };
 		AFC94B471F1470C800D635BC /* LNRefreshComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNRefreshComponent.h; sourceTree = "<group>"; };
 		AFC94B481F1470C800D635BC /* LNRefreshComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRefreshComponent.m; sourceTree = "<group>"; };
 		AFC94B701F14CB5600D635BC /* LNRefreshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNRefreshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,17 +153,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AF1F99111F20779E0074E638 /* LNHeaderDIYAnimator */ = {
-			isa = PBXGroup;
-			children = (
-				AF1F99161F20779E0074E638 /* YLoadingPanel.h */,
-				AF1F99171F20779E0074E638 /* YLoadingPanel.m */,
-				AF1F99121F20779E0074E638 /* LNHeaderDIYAnimator.h */,
-				AF1F99131F20779E0074E638 /* LNHeaderDIYAnimator.m */,
-			);
-			path = LNHeaderDIYAnimator;
-			sourceTree = "<group>";
-		};
 		AF1F991B1F2077D80074E638 /* LNRefreshAnalysis */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +195,7 @@
 		AF29B5B71F0C9CCD00348F99 /* LNRefresh */ = {
 			isa = PBXGroup;
 			children = (
+				AFA7D5631F4423FE00FAFA50 /* LNHeaderDIYAnimator */,
 				AFC94B471F1470C800D635BC /* LNRefreshComponent.h */,
 				AFC94B481F1470C800D635BC /* LNRefreshComponent.m */,
 				AFC94BA31F14D0BE00D635BC /* LNRefreshAnimator.h */,
@@ -226,11 +218,21 @@
 			path = LNRefresh;
 			sourceTree = "<group>";
 		};
+		AFA7D5631F4423FE00FAFA50 /* LNHeaderDIYAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				AFA7D5641F4423FE00FAFA50 /* LNHeaderDIYAnimator.h */,
+				AFA7D5651F4423FE00FAFA50 /* LNHeaderDIYAnimator.m */,
+				AFA7D5661F4423FE00FAFA50 /* YLoadingPanel.h */,
+				AFA7D5671F4423FE00FAFA50 /* YLoadingPanel.m */,
+			);
+			path = LNHeaderDIYAnimator;
+			sourceTree = "<group>";
+		};
 		AFC94B711F14CB5700D635BC /* LNRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
 				AF1F991B1F2077D80074E638 /* LNRefreshAnalysis */,
-				AF1F99111F20779E0074E638 /* LNHeaderDIYAnimator */,
 				AFC94BB61F16397600D635BC /* HomeVC.h */,
 				AFC94BB71F16397600D635BC /* HomeVC.m */,
 				AF1F98FE1F1CAA660074E638 /* DemoVC.h */,
@@ -272,7 +274,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA7D56A1F4423FE00FAFA50 /* YLoadingPanel.h in Headers */,
 				AF29B5891F0C900300348F99 /* LNRefresh.h in Headers */,
+				AFA7D5681F4423FE00FAFA50 /* LNHeaderDIYAnimator.h in Headers */,
 				AF6450E71F32C0B700DB8520 /* LNRefreshConst.h in Headers */,
 				AFEDEA141F220315003EBEA8 /* LNRefreshHandler.h in Headers */,
 				AFC94BA51F14D0BE00D635BC /* LNRefreshAnimator.h in Headers */,
@@ -441,6 +445,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA7D56B1F4423FE00FAFA50 /* YLoadingPanel.m in Sources */,
+				AFA7D5691F4423FE00FAFA50 /* LNHeaderDIYAnimator.m in Sources */,
 				AFC94BBC1F17209D00D635BC /* LNHeaderAnimator.m in Sources */,
 				AFC94BC01F1720B300D635BC /* LNFooterAnimator.m in Sources */,
 				AF29B5C51F0CC04600348F99 /* NSObject+LNRefresh.m in Sources */,
@@ -457,8 +463,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF1F99181F20779E0074E638 /* LNHeaderDIYAnimator.m in Sources */,
-				AF1F991A1F20779E0074E638 /* YLoadingPanel.m in Sources */,
 				AFC94BB81F16397600D635BC /* HomeVC.m in Sources */,
 				AF1F991E1F2077D80074E638 /* LNHeaderAnimator+Analysis.m in Sources */,
 				AFC94B771F14CB5700D635BC /* AppDelegate.m in Sources */,

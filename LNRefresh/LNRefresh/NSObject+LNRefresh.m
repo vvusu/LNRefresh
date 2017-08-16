@@ -171,6 +171,7 @@
 #import "LNRefreshFooter.h"
 #import "LNHeaderAnimator.h"
 #import "LNFooterAnimator.h"
+#import "LNHeaderDIYAnimator.h"
 #import <objc/runtime.h>
 
 static const char LNRefreshHeaderKey = '\0';
@@ -197,6 +198,11 @@ static const char LNRefreshFooterKey = '\0';
 #pragma mark - LNRefreshHeader 下拉
 - (LNRefreshHeader *)addPullToRefresh:(LNRefreshComponentBlock)block {
     return [self addPullToRefresh:[[LNHeaderAnimator alloc] init] block:block];
+}
+
+//WSCN
+- (LNRefreshHeader *)addPullToRefreshTypeDIY:(LNRefreshComponentBlock)block {
+    return [self addPullToRefresh:[LNHeaderDIYAnimator createAnimator] block:block];
 }
 
 - (LNRefreshHeader *)addPullToRefresh:(LNHeaderAnimator *)animater block:(LNRefreshComponentBlock)block {
