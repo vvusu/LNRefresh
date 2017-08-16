@@ -180,7 +180,7 @@ static NSUInteger num = 0;
             [headerAnimator setImages:idleImages forState:LNRefreshState_Refreshing];
         }
     } else {  // 自定义刷新动画
-        [self.tableView addPullToRefresh:[LNHeaderDIYAnimator createAnimator] block:^{
+        [self.tableView addPullToRefreshTypeDIY:^{
             [wself pullToRefresh];
         }];
 //        self.tableView.ln_header.animator.trigger = 100;
