@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, LNRefreshHeaderType) {
 @property (nonatomic, strong) UIImageView *bgImageView;
 @property (nonatomic, assign) LNRefreshHeaderType headerType;
 
+- (void)gifViewReStartAnimation;
 - (void)changeHeaderType:(LNRefreshHeaderType)type;
 - (void)setImages:(NSArray *)images forState:(LNRefreshState)state;
 - (void)setImages:(NSArray *)images duration:(NSTimeInterval)duration forState:(LNRefreshState)state;

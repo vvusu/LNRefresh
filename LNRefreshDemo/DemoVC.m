@@ -95,7 +95,7 @@
 - (void)pullToRefresh {
     NSLog(@"下拉刷新");
     [self.dataArr removeAllObjects];
-    for (NSInteger i = 0; i < 10; i++) {
+    for (NSInteger i = 0; i < 15; i++) {
         [self.dataArr addObject:[self randomUnicodeString]];
     }
     __weak UITableView *wtableView = self.tableView;

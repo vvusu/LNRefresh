@@ -9,8 +9,8 @@
 #import "LNRefreshConst.h"
 
 //Frame
-const CGFloat LNRefreshTrigger = 50.0f;
-const CGFloat LNRefreshIncremental = 50.0f;
+const CGFloat LNRefreshTrigger = 45.0f;
+const CGFloat LNRefreshIncremental = 45.0f;
 
 //String
 NSString *const LNRefreshLoading = @"LNRefreshLoading";

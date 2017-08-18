@@ -171,6 +171,7 @@
 #import "LNRefreshFooter.h"
 #import "LNHeaderAnimator.h"
 #import "LNFooterAnimator.h"
+#import "LNHeaderDIYAnimator.h"
 #import <objc/runtime.h>
 
 static const char LNRefreshHeaderKey = '\0';
@@ -199,15 +200,25 @@ static const char LNRefreshFooterKey = '\0';
     return [self addPullToRefresh:[[LNHeaderAnimator alloc] init] block:block];
 }
 
-- (LNRefreshHeader *)addPullToRefresh:(LNHeaderAnimator *)animater block:(LNRefreshComponentBlock)block {
-    if (!self.ln_header) {
-        LNRefreshHeader *header = [LNRefreshHeader initWithFrame:CGRectZero animator:animater block:block];
-        CGPoint offset = self.contentOffset;
-        header.frame = CGRectMake(offset.x, -header.animator.incremental + offset.y, self.bounds.size.width, header.animator.incremental);
-        header.animator.animatorView = header;
-        self.ln_header = header;
-        [self insertSubview:header atIndex:0];
+- (LNRefreshHeader *)addPullToRefreshWithHeight:(CGFloat)height block:(LNRefreshComponentBlock)block {
+    LNHeaderAnimator *header = [[LNHeaderAnimator alloc] init];
+    if (height > 0) {
+        header.trigger = height;
     }
+    return [self addPullToRefresh:header block:block];
+}
+
+- (LNRefreshHeader *)addPullToRefresh:(LNHeaderAnimator *)animater block:(LNRefreshComponentBlock)block {
+    if (self.ln_header) {
+        [self.ln_header stop];
+        self.contentInset = self.ln_header.scrollViewInsets;
+        [self removeRefreshHeader];
+    }
+    LNRefreshHeader *header = [LNRefreshHeader initWithFrame:CGRectZero animator:animater block:block];
+    header.frame = CGRectMake(self.contentOffset.x, -header.animator.incremental + self.contentOffset.y, self.bounds.size.width, header.animator.incremental);
+    header.animator.animatorView = header;
+    self.ln_header = header;
+    [self insertSubview:header atIndex:0];
     return self.ln_header;
 }
 
@@ -217,48 +228,20 @@ static const char LNRefreshFooterKey = '\0';
 }
 
 - (LNRefreshFooter *)addInfiniteScrolling:(LNFooterAnimator *)animater block:(LNRefreshComponentBlock)block {
-    if (!self.ln_footer) {
-        LNRefreshFooter *footer = [LNRefreshFooter initWithFrame:CGRectZero animator:animater block:block];
-        CGPoint offset = self.contentOffset;
-        footer.frame = CGRectMake(offset.x, self.contentSize.height + self.contentInset.bottom - offset.y, self.bounds.size.width, footer.animator.incremental);
-        footer.animator.animatorView = footer;
-        self.ln_footer = footer;
-        [self insertSubview:self.ln_footer atIndex:0];
+    if (self.ln_footer) {
+        [self.ln_footer stop];
+        self.contentInset = self.ln_footer.scrollViewInsets;
+        [self removeRefreshFooter];
     }
+    LNRefreshFooter *footer = [LNRefreshFooter initWithFrame:CGRectZero animator:animater block:block];
+    footer.frame = CGRectMake(self.contentOffset.x, self.contentSize.height + self.contentOffset.y - self.contentInset.top, self.bounds.size.width, footer.animator.incremental);
+    footer.animator.animatorView = footer;
+    self.ln_footer = footer;
+    [self insertSubview:self.ln_footer atIndex:0];
     return self.ln_footer;
 }
 
-#pragma mark - Action
-- (void)startRefreshing {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.ln_header startRefreshing];
-    });
-}
-
-- (void)endRefreshing {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self endRefreshing:NO];
-    });
-}
-
-- (void)endRefreshing:(BOOL)ignoreFooter {
-    [self.ln_header stopRefreshing];
-    [self resetNoMoreData];
-    self.ln_footer.hidden = ignoreFooter;
-}
-
-- (void)endLoadingMore {
-    [self.ln_footer stopRefreshing];
-}
-
-- (void)resetNoMoreData {
-    self.ln_footer.noMoreData = NO;
-}
-
-- (void)noticeNoMoreData {
-    self.ln_footer.noMoreData = YES;
-    [self.ln_footer stopRefreshing];
-}
+#pragma mark - Remove Action
 
 - (void)removeRefreshHeader {
     [self.ln_header stopRefreshing];
@@ -270,6 +253,98 @@ static const char LNRefreshFooterKey = '\0';
     [self.ln_footer stopRefreshing];
     [self.ln_footer removeFromSuperview];
     self.ln_footer = nil;
+}
+
+#pragma mark - Action
+
+- (void)pullDownDealFooterWithItemCount:(NSInteger)itemCount cursor:(NSString *)cursor{
+    [self endRefreshing];
+    if (itemCount == 0) {
+        self.ln_footer.hidden = YES;
+    } else {
+        if (cursor.length > 0) {
+            [self resetNoMoreData];
+        } else {
+            [self noticeNoMoreData];
+        }
+    }
+}
+
+- (void)pullUpRefreshDealFooterWithItemCount:(NSInteger)itemCount cursor:(NSString *)cursor {
+    [self endLoadingMore];
+    if (itemCount > 0 && cursor.length > 0) {
+        [self resetNoMoreData];
+    } else {
+        [self noticeNoMoreData];
+    }
+}
+
+- (void)reStartGIFAnimation {
+    if (self.ln_header) {
+        if (self.ln_header.isRefreshing) {
+            LNHeaderAnimator *headerAnimator = (LNHeaderAnimator *)self.ln_header.animator;
+            [headerAnimator gifViewReStartAnimation];
+        } else {
+            [self.ln_header stopRefreshing];
+        }
+    }
+}
+
+- (void)startRefreshing {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.ln_header startRefreshing];
+    });
+}
+
+- (void)endRefreshing {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.ln_header stopRefreshing];
+    });
+}
+
+- (void)endLoadingMore {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.ln_footer stopRefreshing];
+    });
+}
+
+- (void)resetNoMoreData {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.ln_footer.hidden = NO;
+        self.ln_footer.noMoreData = NO;
+        [self.ln_footer stop];
+    });
+}
+
+- (void)noticeNoMoreData {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.ln_footer.hidden = NO;
+        self.ln_footer.noMoreData = YES;
+        [self.ln_footer stop];
+    });
+}
+
+- (void)hideRefreshFooter {
+    if (!self.ln_footer.hidden) {
+        self.ln_footer.hidden = YES;
+    }
+}
+- (void)hideRefreshHeader {
+    if (!self.ln_header.hidden) {
+        self.ln_header.hidden = YES;
+    }
+}
+
+- (void)showRefreshFooter {
+    if (self.ln_footer.hidden) {
+        self.ln_footer.hidden = NO;
+    }
+}
+
+- (void)showRefreshHeader {
+    if (self.ln_header.hidden) {
+        self.ln_header.hidden = NO;
+    }
 }
 
 @end

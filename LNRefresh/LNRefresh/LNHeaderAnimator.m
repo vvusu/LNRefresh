@@ -358,6 +358,10 @@
     self.gifView.image = images[index];
 }
 
+- (void)gifViewReStartAnimation {
+    [self.gifView startAnimating];
+}
+
 # pragma mark - DIY Action
 - (void)setupHeaderView_DIY {}
 - (void)layoutHeaderView_DIY {}

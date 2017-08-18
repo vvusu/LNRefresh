@@ -20,7 +20,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-        _titleLabel.font = [UIFont systemFontOfSize:12];
+        _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshLoadingMore];
@@ -59,12 +59,13 @@
     self.state = state;
     switch (state) {
         case LNRefreshState_Normal:
-            self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshLoadingMore];
+            [self endRefreshAnimation:view];
             break;
         case LNRefreshState_Refreshing:
-            self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshLoading];
+            [self startRefreshAnimation:view];
             break;
         case LNRefreshState_NoMoreData:
+            [self endRefreshAnimation:view];
             self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshNoMoreData];
             break;
         default:
