@@ -30,7 +30,6 @@
     LNRefreshFooter *footer = [[LNRefreshFooter alloc]init];
     footer.animator = animator;
     footer.refreshBlock = block;
-    footer.alpha = 0;
     return footer;
 }
 
@@ -55,14 +54,8 @@
 
 - (void)contentOffsetChangeAction:(NSDictionary *)change {
     [super contentOffsetChangeAction:change];
-    if (self.isRefreshing || self.isNoNoreData || self.isHidden) {
+    if (self.isRefreshing || self.isNoNoreData || self.hidden) {
         return;
-    }
-    if (self.scrollView.contentSize.height <= 0 ||
-        self.scrollView.contentOffset.y + self.scrollView.contentInset.top <= 0) {
-        self.alpha = 0;
-    } else {
-        self.alpha = 1.0;
     }
     if (self.scrollView.contentSize.height + self.scrollView.contentInset.top > self.scrollView.bounds.size.height) {
         if (self.scrollView.contentSize.height - self.scrollView.contentOffset.y + self.scrollView.contentInset.bottom <= self.scrollView.bounds.size.height) {
@@ -99,7 +92,6 @@
         self.alpha = 1;
         [self.animator refreshView:self state:LNRefreshState_NoMoreData];
     } else {
-        self.alpha = 0;
         [self.animator refreshView:self state:LNRefreshState_Normal];
     }
 }

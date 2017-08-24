@@ -232,9 +232,11 @@
 -(void)setPullingPercent:(CGFloat)pullingPercent {
     _pullingPercent = pullingPercent;
     self.isPageLoading = NO;
-    if (pullingPercent > 0.1 && pullingPercent <= 0.5) {
+    if (pullingPercent < 0.5) {
+        [self keepNumber:0];
+    } else if (pullingPercent >= 0.5 && pullingPercent <= 0.7) {
         [self keepNumber:1];
-    } else if (pullingPercent > 0.5 && pullingPercent < 0.8) {
+    } else if (pullingPercent > 0.7 && pullingPercent < 0.9) {
         [self keepNumber:2];
         
     } else {

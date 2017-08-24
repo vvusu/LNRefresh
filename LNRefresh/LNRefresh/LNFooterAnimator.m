@@ -20,9 +20,9 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-        _titleLabel.font = [UIFont systemFontOfSize:14];
-        _titleLabel.textColor = [UIColor blackColor];
-        _titleLabel.textAlignment = NSTextAlignmentLeft;
+        _titleLabel.font = LNRefreshLabelFont;
+        _titleLabel.textColor = LNRefreshLabelTextColor;
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshLoadingMore];
     }
     return _titleLabel;

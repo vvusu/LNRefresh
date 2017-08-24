@@ -95,7 +95,7 @@
 - (void)pullToRefresh {
     NSLog(@"下拉刷新");
     [self.dataArr removeAllObjects];
-    for (NSInteger i = 0; i < 15; i++) {
+    for (NSInteger i = 0; i < 10; i++) {
         [self.dataArr addObject:[self randomUnicodeString]];
     }
     __weak UITableView *wtableView = self.tableView;
@@ -105,6 +105,7 @@
         if (self.vcType == LNDemoVCType_TableView) {
             [wtableView reloadData];
             [wtableView endRefreshing];
+            [wtableView pullDownDealFooterWithItemCount:self.dataArr.count cursor:@"11"];
         }
         if (self.vcType == LNDemoVCType_CollectionView) {
             [wcollectionView reloadData];
@@ -174,7 +175,6 @@ static NSUInteger num = 0;
                 [idleImages addObject:image];
             }
             LNHeaderAnimator *headerAnimator = (LNHeaderAnimator *)self.tableView.ln_header.animator;
-//            headerAnimator.trigger = 100;
             [headerAnimator changeHeaderType:LNRefreshHeaderType_GIF];
             [headerAnimator setImages:idleImages forState:LNRefreshState_Normal];
             [headerAnimator setImages:idleImages forState:LNRefreshState_Refreshing];
@@ -183,7 +183,6 @@ static NSUInteger num = 0;
         [self.tableView addPullToRefresh:[LNHeaderDIYAnimator createAnimator] block:^{
             [wself pullToRefresh];
         }];
-//        self.tableView.ln_header.animator.trigger = 100;
         LNHeaderDIYAnimator *headerAnimator = (LNHeaderDIYAnimator *)self.tableView.ln_header.animator;
         headerAnimator.bgImageView.image = [UIImage imageNamed:@"refresh_bgimage_2.jpg"];
     }

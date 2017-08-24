@@ -9,6 +9,7 @@
 #import "LNRefreshHeader.h"
 #import "LNHeaderAnimator.h"
 #import "NSObject+LNRefresh.h"
+#import "LNRefreshHandler.h"
 
 @implementation LNRefreshHeader
 
@@ -48,7 +49,11 @@
     } else if (offsets < 0) {
         if (!self.isRefreshing) {
             [self.animator refreshView:self state:LNRefreshState_Normal];
-            [self.animator refreshView:self progress:-offsets/self.animator.trigger];
+            CGFloat progress = -offsets/self.animator.trigger;
+            if (progress > 1) {
+                progress = 1;
+            }
+            [self.animator refreshView:self progress:progress];
         }
     } else {}
     self.previousOffset = self.scrollView.contentOffset.y;
@@ -58,6 +63,7 @@
     [super start];
     self.ignoreObserving = YES;
     self.scrollView.bounces = NO;
+    self.startData = [NSDate timeIntervalSinceReferenceDate];
     [self.animator startRefreshAnimation:self];
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:0.25f animations:^{
@@ -76,14 +82,22 @@
 - (void)stop {
     [super stop];
     self.ignoreObserving = YES;
-    [self.animator endRefreshAnimation:self];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.4f animations:^{
-            self.scrollView.ln_insetT = self.scrollViewInsets.top;
-            self.previousOffset = self.scrollView.contentOffset.y;
-        } completion:^(BOOL finished) {
-            self.ignoreObserving = NO;
-        }];
+    NSTimeInterval time = [NSDate timeIntervalSinceReferenceDate] - self.startData;
+    if (time > [LNRefreshHandler defaultHandler].refreshTime) {
+        time = 0;
+    } else {
+        time = [LNRefreshHandler defaultHandler].refreshTime - time;
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.animator endRefreshAnimation:self];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.4f animations:^{
+                self.scrollView.ln_insetT = self.scrollViewInsets.top;
+                self.previousOffset = self.scrollView.contentOffset.y;
+            } completion:^(BOOL finished) {
+                self.ignoreObserving = NO;
+            }];
+        });
     });
 }
 

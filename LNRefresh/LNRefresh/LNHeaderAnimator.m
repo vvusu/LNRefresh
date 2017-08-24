@@ -35,14 +35,14 @@
 
 - (NSMutableDictionary *)stateImages {
     if (!_stateImages) {
-        self.stateImages = [NSMutableDictionary dictionary];
+        _stateImages = [NSMutableDictionary dictionary];
     }
     return _stateImages;
 }
 
 - (NSMutableDictionary *)stateDurations {
     if (!_stateDurations) {
-        self.stateDurations = [NSMutableDictionary dictionary];
+        _stateDurations = [NSMutableDictionary dictionary];
     }
     return _stateDurations;
 }
@@ -101,6 +101,11 @@
 - (void)setupHeaderAnimator {
     if ([LNRefreshHandler defaultHandler].headerType >= 0) {
         self.headerType = [LNRefreshHandler defaultHandler].headerType;
+        if (self.headerType == LNRefreshHeaderType_DIY) {
+            [LNRefreshHandler defaultHandler].refreshTime = LNRefreshDIYRefreshTime;
+        } else {
+            [LNRefreshHandler defaultHandler].refreshTime = LNRefreshNORRefreshTime;
+        }
     }
     if ([LNRefreshHandler defaultHandler].bgImage) {
         self.bgImageView.image = [LNRefreshHandler defaultHandler].bgImage;
@@ -321,11 +326,14 @@
 
 - (void)setupSubViews_GIF {
     [self.animatorView addSubview:self.gifView];
+    [self.gifView stopAnimating];
+    NSArray *images = self.stateImages[@(0)];
+    self.gifView.image = images.firstObject;
 }
 
 - (void)layoutHeaderView_GIF {
     self.gifView.frame = self.animatorView.bounds;
-    self.gifView.contentMode = UIViewContentModeCenter;
+    self.gifView.contentMode = UIViewContentModeCenter | UIViewContentModeBottom;
 }
 
 - (void)startRefreshAnimation_GIF:(LNRefreshState)state {

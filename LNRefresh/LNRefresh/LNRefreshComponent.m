@@ -63,19 +63,23 @@ NSString *const LNRefreshContentOffset = @"contentOffset";
 
 - (void)startRefreshing {
     if (self.isRefreshing || !self.finishLoad) { return; }
-    self.refreshing = YES;
     [self start];
 }
 
 - (void)stopRefreshing {
     if (self.isRefreshing) {
-        self.refreshing = NO;
         [self stop];
     }
 }
 
-- (void)stop {}
-- (void)start {}
+- (void)stop {
+    self.refreshing = NO;
+}
+
+- (void)start {
+    self.refreshing = YES;
+}
+
 - (void)contentSizeChangeAction:(NSDictionary *)change {};
 - (void)contentOffsetChangeAction:(NSDictionary *)change {};
 

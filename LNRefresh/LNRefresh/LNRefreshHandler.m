@@ -18,6 +18,7 @@
     dispatch_once(&onceQuoteHandler, ^{
         refreshHandler = [[LNRefreshHandler alloc]init];
         refreshHandler.headerType = -1;
+        refreshHandler.refreshTime = 0;
         refreshHandler.stateImages = [NSMutableDictionary dictionary];
         refreshHandler.localizedStringDic = [LNRefreshHandler localizedStringDic];
     });
@@ -35,12 +36,10 @@
     if ([currentLanguage hasPrefix:@"en"]) {
         currentLanguage = @"en";
     } else if ([currentLanguage hasPrefix:@"zh"]) {
-        // 简体中文
         if ([currentLanguage rangeOfString:@"Hans"].location != NSNotFound) {
-            currentLanguage = @"zh-Hans";
-        } //繁體中文(zh-Hant\zh-HK\zh-TW)
-        else {
-            currentLanguage = @"zh-Hant";
+            currentLanguage = @"zh-Hans";  // 简体中文
+        } else {
+            currentLanguage = @"zh-Hant";  //繁體中文(zh-Hant\zh-HK\zh-TW)
         }
     }
     NSDictionary *localizedStringDic = [jsonDic valueForKey:currentLanguage];

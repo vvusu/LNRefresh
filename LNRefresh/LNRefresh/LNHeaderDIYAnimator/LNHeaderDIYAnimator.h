@@ -6,7 +6,7 @@
 //  Copyright © 2017 vvusu. All rights reserved.
 //
 
-#import <LNRefresh/LNRefresh.h>
+#import "LNRefresh.h"
 
 @interface LNHeaderDIYAnimator : LNHeaderAnimator
 + (instancetype)createAnimator;

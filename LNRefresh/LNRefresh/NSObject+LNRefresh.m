@@ -200,8 +200,12 @@ static const char LNRefreshFooterKey = '\0';
     return [self addPullToRefresh:[[LNHeaderAnimator alloc] init] block:block];
 }
 
-- (LNRefreshHeader *)addPullToRefreshWithHeight:(CGFloat)height block:(LNRefreshComponentBlock)block {
-    LNHeaderAnimator *header = [[LNHeaderAnimator alloc] init];
+- (LNRefreshHeader *)addPullToRefreshTypeDIY:(LNRefreshComponentBlock)block {
+    return [self addPullToRefresh:[LNHeaderDIYAnimator createAnimator] block:block];
+}
+
+- (LNRefreshHeader *)addPullToRefreshWithHeight:(CGFloat)height typeDIY:(LNRefreshComponentBlock)block {
+    LNHeaderDIYAnimator *header = [LNHeaderDIYAnimator createAnimator];
     if (height > 0) {
         header.trigger = height;
     }
@@ -236,7 +240,9 @@ static const char LNRefreshFooterKey = '\0';
     LNRefreshFooter *footer = [LNRefreshFooter initWithFrame:CGRectZero animator:animater block:block];
     footer.frame = CGRectMake(self.contentOffset.x, self.contentSize.height + self.contentOffset.y - self.contentInset.top, self.bounds.size.width, footer.animator.incremental);
     footer.animator.animatorView = footer;
+    footer.hidden = YES;
     self.ln_footer = footer;
+    
     [self insertSubview:self.ln_footer atIndex:0];
     return self.ln_footer;
 }
@@ -257,7 +263,7 @@ static const char LNRefreshFooterKey = '\0';
 
 #pragma mark - Action
 
-- (void)pullDownDealFooterWithItemCount:(NSInteger)itemCount cursor:(NSString *)cursor{
+- (void)pullDownDealFooterWithItemCount:(NSInteger)itemCount cursor:(NSString *)cursor {
     [self endRefreshing];
     if (itemCount == 0) {
         self.ln_footer.hidden = YES;
@@ -310,16 +316,16 @@ static const char LNRefreshFooterKey = '\0';
 
 - (void)resetNoMoreData {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.ln_footer.hidden = NO;
         self.ln_footer.noMoreData = NO;
+        self.ln_footer.hidden = NO;
         [self.ln_footer stop];
     });
 }
 
 - (void)noticeNoMoreData {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.ln_footer.hidden = NO;
         self.ln_footer.noMoreData = YES;
+        self.ln_footer.hidden = NO;
         [self.ln_footer stop];
     });
 }
@@ -329,6 +335,7 @@ static const char LNRefreshFooterKey = '\0';
         self.ln_footer.hidden = YES;
     }
 }
+
 - (void)hideRefreshHeader {
     if (!self.ln_header.hidden) {
         self.ln_header.hidden = YES;

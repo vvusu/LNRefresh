@@ -12,6 +12,7 @@
 @interface LNRefreshHandler : NSObject
 @property (nonatomic, strong) UIImage *bgImage;
 @property (nonatomic, assign) CGFloat incremental;
+@property (nonatomic, assign) NSTimeInterval refreshTime;
 @property (nonatomic, strong) NSDictionary *localizedStringDic;
 @property (nonatomic, strong) NSMutableDictionary *stateImages;
 @property (nonatomic, assign) LNRefreshHeaderType headerType;
@@ -20,7 +21,6 @@
 + (NSString *)localizedStringForKey:(NSString *)key;
 
 + (void)changeAllHeaderAnimatorType:(LNRefreshHeaderType)type;
-
 + (void)changeAllHeaderAnimatorType:(LNRefreshHeaderType)type
                             bgImage:(UIImage *)image;
 
@@ -30,7 +30,6 @@
 
 + (void)setAllHeaderAnimatorStateImages:(NSArray *)stateImages
                                   state:(LNRefreshState)state;
-
 + (void)setAllHeaderAnimatorStateImages:(NSArray *)stateImages
                                   state:(LNRefreshState)state
                                duration:(NSTimeInterval)duration;
