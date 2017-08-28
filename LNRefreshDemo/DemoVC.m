@@ -9,6 +9,12 @@
 #import "DemoVC.h"
 #import <LNRefresh/LNRefresh.h>
 #import "LNHeaderDIYAnimator.h"
+#import "LNHeaderJDAnimator.h"
+#import "LNHeaderTmallAnimator.h"
+#import "LNHeaderTaobaoAnimator.h"
+#import "LNHeaderMeituanAnimator.h"
+#import "LNHeaderKaolaAnimator.h"
+#import "LNHeaderNetEaseNewsAnimator.h"
 
 #define LNViewW self.view.frame.size.width
 #define LNViewH self.view.frame.size.height - 64
@@ -154,7 +160,6 @@ static NSUInteger num = 0;
     self.tableView.backgroundColor = LNViewBGColor;
     self.tableView.tableFooterView = [[UIView alloc]init];
     [self.view addSubview:self.tableView];
-    // 刷新
     __weak typeof(self) wself = self;
     // 默认刷新动画
     if (!self.isDIY) {
@@ -179,12 +184,54 @@ static NSUInteger num = 0;
             [headerAnimator setImages:idleImages forState:LNRefreshState_Normal];
             [headerAnimator setImages:idleImages forState:LNRefreshState_Refreshing];
         }
-    } else {  // 自定义刷新动画
-        [self.tableView addPullToRefresh:[LNHeaderDIYAnimator createAnimator] block:^{
-            [wself pullToRefresh];
-        }];
-        LNHeaderDIYAnimator *headerAnimator = (LNHeaderDIYAnimator *)self.tableView.ln_header.animator;
-        headerAnimator.bgImageView.image = [UIImage imageNamed:@"refresh_bgimage_2.jpg"];
+    } else {
+        //自定义刷新动画
+        switch (self.DIYType) {
+            case LNDemoDIYType_NOR: {
+                [self.tableView addPullToRefresh:[LNHeaderDIYAnimator createAnimator] block:^{
+                    [wself pullToRefresh];
+                }];
+                LNHeaderDIYAnimator *headerAnimator = (LNHeaderDIYAnimator *)self.tableView.ln_header.animator;
+                headerAnimator.bgImageView.image = [UIImage imageNamed:@"refresh_bgimage_2.jpg"];
+            }
+                break;
+            case LNDemoDIYType_DJ: {
+                [self.tableView addPullToRefresh:[LNHeaderJDAnimator createAnimator] block:^{
+                    [wself pullToRefresh];
+                }];
+            }
+                break;
+            case LNDemoDIYType_TMall: {
+                [self.tableView addPullToRefresh:[LNHeaderTmallAnimator createAnimator] block:^{
+                    [wself pullToRefresh];
+                }];
+            }
+                break;
+            case LNDemoDIYType_TaoBao: {
+                [self.tableView addPullToRefresh:[LNHeaderTaobaoAnimator createAnimator] block:^{
+                    [wself pullToRefresh];
+                }];
+            }
+                break;
+            case LNDemoDIYType_KaoLa: {
+                [self.tableView addPullToRefresh:[LNHeaderKaolaAnimator createAnimator] block:^{
+                    [wself pullToRefresh];
+                }];
+            }
+                break;
+            case LNDemoDIYType_Meituan: {
+                [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
+                    [wself pullToRefresh];
+                }];
+            }
+                break;
+            case LNDemoDIYType_NetEaseNews: {
+                [self.tableView addPullToRefresh:[LNHeaderNetEaseNewsAnimator createAnimator] block:^{
+                    [wself pullToRefresh];
+                }];
+            }
+                break;
+        }
     }
     [self.tableView startRefreshing];
 }
@@ -214,7 +261,6 @@ static NSUInteger num = 0;
 }
 
 #pragma mark - UICollectionView
-
 - (void)createCollectionView {
     CGFloat itemW = (self.view.frame.size.width - 40) / 3.0 - 1;
     CGFloat itemH = itemW * 87 / 61 + 20;
@@ -287,7 +333,6 @@ static NSUInteger num = 0;
 }
 
 #pragma mark - UIWebView
-
 - (void)createWebView {
     self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 64, LNViewW, LNViewH)];
     self.webView.backgroundColor = LNViewBGColor;
@@ -312,8 +357,7 @@ static NSUInteger num = 0;
     [self.webView.scrollView endRefreshing];
 }
 
-#pragma mark - UITextView 
-
+#pragma mark - UITextView
 - (void)createTextView {
     self.textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 64, LNViewW, LNViewH)];
     self.textView.alwaysBounceVertical = YES;

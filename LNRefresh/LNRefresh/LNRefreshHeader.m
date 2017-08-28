@@ -37,25 +37,24 @@
 - (void)contentOffsetChangeAction:(NSDictionary *)change {
     [super contentOffsetChangeAction:change];
     CGFloat offsets = self.previousOffset + self.scrollViewInsets.top;
-    if (offsets < -self.animator.trigger) {
+    if (offsets < 0) {
         if (!self.isRefreshing) {
-            if (!self.scrollView.isDragging) {
-                [self startRefreshing];
-                [self.animator refreshView:self state:LNRefreshState_Refreshing];
+            CGFloat progress = -offsets/self.animator.trigger;
+            if (progress > 1) {
+                if (!self.scrollView.isDragging) {
+                    [self startRefreshing];
+                    [self.animator refreshView:self state:LNRefreshState_Refreshing];
+                } else {
+                    [self.animator refreshView:self state:LNRefreshState_WillRefresh];
+                }
             } else {
                 [self.animator refreshView:self state:LNRefreshState_PullToRefresh];
             }
-        }
-    } else if (offsets < 0) {
-        if (!self.isRefreshing) {
-            [self.animator refreshView:self state:LNRefreshState_Normal];
-            CGFloat progress = -offsets/self.animator.trigger;
-            if (progress > 1) {
-                progress = 1;
+            if (self.scrollView.isDragging) {
+                [self.animator refreshView:self progress:progress];
             }
-            [self.animator refreshView:self progress:progress];
         }
-    } else {}
+    }
     self.previousOffset = self.scrollView.contentOffset.y;
 }
 
@@ -64,7 +63,7 @@
     self.ignoreObserving = YES;
     self.scrollView.bounces = NO;
     self.startData = [NSDate timeIntervalSinceReferenceDate];
-    [self.animator startRefreshAnimation:self];
+    [self.animator refreshView:self state:LNRefreshState_Refreshing];
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:0.25f animations:^{
             self.scrollView.ln_insetT = self.scrollViewInsets.top + self.animator.trigger;
@@ -89,13 +88,14 @@
         time = [LNRefreshHandler defaultHandler].refreshTime - time;
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.animator endRefreshAnimation:self];
+        [self.animator refreshView:self state:LNRefreshState_PullToRefresh];
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.4f animations:^{
                 self.scrollView.ln_insetT = self.scrollViewInsets.top;
                 self.previousOffset = self.scrollView.contentOffset.y;
             } completion:^(BOOL finished) {
                 self.ignoreObserving = NO;
+                [self.animator refreshView:self state:LNRefreshState_Normal];
             }];
         });
     });

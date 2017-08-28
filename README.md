@@ -36,6 +36,16 @@ GIF picture from [华尔街见闻](https://wallstreetcn.com/)
     <img src="./images/demo_2.gif" style="zoom:60%" align=center/>
 </p>
 
+## Customize Demos
+
+|京东商城 | ![](./images/demo_jd.gif)|
+| --- | --- | --- |
+|天猫商城|![](./images/demo_tmall.gif)|
+|淘宝商城|![](./images/demo_taobao.gif)|
+|考拉海购|![](./images/demo_kaola.gif)|
+|美团外卖|![](./images/demo_meituan.gif)|
+|网易新闻|![](./images/demo_neteasenews.gif)|
+
 ## Installation
 ### CocoaPods
 Installation with CocoaPods:

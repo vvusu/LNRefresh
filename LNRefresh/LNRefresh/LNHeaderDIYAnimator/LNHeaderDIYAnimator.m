@@ -41,21 +41,16 @@
     self.loadingPanel.frame = panelFrame;
 }
 
-- (void)refreshHeaderView_DIY:(LNRefreshState)state {
+- (void)refreshHeaderView_DIY:(LNRefreshComponent *)view state:(LNRefreshState)state {
     switch (state) {
         case LNRefreshState_Normal:
+            [self.loadingPanel stopPageLoadingAnimation];
             break;
+        case LNRefreshState_Refreshing:
+            [self.loadingPanel doPageLoadingAnimation];
         default:
             break;
     }
-}
-
-- (void)endRefreshAnimation_DIY:(LNRefreshComponent *)view {
-    [self.loadingPanel stopPageLoadingAnimation];
-}
-
-- (void)startRefreshAnimation_DIY:(LNRefreshComponent *)view {
-    [self.loadingPanel doPageLoadingAnimation];
 }
 
 - (void)refreshView_DIY:(LNRefreshComponent *)view progress:(CGFloat)progress {

@@ -10,9 +10,8 @@
 #import "LNRefreshHandler.h"
 
 @interface LNHeaderAnimator()
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UIImageView *gifView;
 @property (nonatomic, assign) NSTimeInterval duration;
+@property (nonatomic, assign) NSTimeInterval arrowTime;
 @property (nonatomic, strong) NSMutableDictionary *stateImages;       //所有状态对应的动画图片
 @property (nonatomic, strong) NSMutableDictionary *stateDurations;    //所有状态对应的动画时间
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView; //UIActivityIndicatorView
@@ -182,27 +181,23 @@
     switch (self.headerType) {
         case LNRefreshHeaderType_NOR: {
             switch (state) {
-                case LNRefreshState_Normal: {
-                    self.titleLabel.text =  [LNRefreshHandler localizedStringForKey:LNRefreshPullToRefresh];
-                    [UIView animateWithDuration:0.2 animations:^{
-                        self.imageView.transform = CGAffineTransformIdentity;
-                    }];
-                }
+                case LNRefreshState_Normal:
+                case LNRefreshState_PullToRefresh:
+                    [self endRefreshAnimation_NOR];
                     break;
-                case LNRefreshState_PullToRefresh: {
-                    self.titleLabel.text =  [LNRefreshHandler localizedStringForKey:LNRefreshReleaseToRefresh];
+                case LNRefreshState_WillRefresh: {
+                    self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshReleaseToRefresh];
                     [UIView animateWithDuration:0.2 animations:^{
+                        self.arrowTime = 0.2;
                         self.imageView.transform = CGAffineTransformRotate(self.imageView.transform, M_PI);
                     }];
                 }
                     break;
                 case LNRefreshState_Refreshing:
-                    self.titleLabel.text =  [LNRefreshHandler localizedStringForKey:LNRefreshLoading];
+                    [self startRefreshAnimation_NOR];
                     break;
                 case LNRefreshState_NoMoreData:
                     self.titleLabel.text =  [LNRefreshHandler localizedStringForKey:LNRefreshNoMoreData];
-                    break;
-                default:
                     break;
             }
         }
@@ -210,22 +205,21 @@
         case LNRefreshHeaderType_GIF: {
             switch (state) {
                 case LNRefreshState_Normal:
-                case LNRefreshState_Refreshing: {
-                    [self startRefreshAnimation_GIF:state];
-                }
+                case LNRefreshState_PullToRefresh:
+                    [self endRefreshAnimation_GIF:view];
                     break;
+                case LNRefreshState_Refreshing:
                 case LNRefreshState_WillRefresh:
+                    [self startRefreshAnimation_GIF:state];
                     break;
                 case LNRefreshState_NoMoreData:
                     self.gifView.hidden = YES;
-                    break;
-                default:
                     break;
             }
         }
             break;
         case LNRefreshHeaderType_DIY:
-            [self refreshHeaderView_DIY:state];
+            [self refreshHeaderView_DIY:view state:state];
             break;
     }
     [self layoutSubviews];
@@ -243,36 +237,6 @@
             [self refreshView_DIY:view progress:progress];
             break;
     }
-}
-
-- (void)startRefreshAnimation:(LNRefreshComponent *)view {
-    switch (self.headerType) {
-        case LNRefreshHeaderType_NOR:
-            [self start_HeaderViewRefreshing];
-            break;
-        case LNRefreshHeaderType_GIF:
-            [self startRefreshAnimation_GIF:LNRefreshState_Refreshing];
-            break;
-        case LNRefreshHeaderType_DIY:
-           [self startRefreshAnimation_DIY:view];
-            break;
-    }
-    [self layoutSubviews];
-}
-
-- (void)endRefreshAnimation:(LNRefreshComponent *)view {
-    switch (self.headerType) {
-        case LNRefreshHeaderType_NOR:
-            [self endRefreshAnimation_NOR];
-            break;
-        case LNRefreshHeaderType_GIF:
-            [self endRefreshAnimation_GIF:view];
-            break;
-        case LNRefreshHeaderType_DIY:
-            [self endRefreshAnimation_DIY:view];
-            break;
-    }
-    [self layoutSubviews];
 }
 
 # pragma mark - NOR Action
@@ -293,7 +257,7 @@
     self.imageView.center = CGPointMake(self.titleLabel.frame.origin.x - 16.0, viewH/2.0);
 }
 
-- (void)start_HeaderViewRefreshing {
+- (void)startRefreshAnimation_NOR {
     [self.indicatorView startAnimating];
     self.imageView.hidden = YES;
     self.indicatorView.hidden = NO;
@@ -306,7 +270,10 @@
     self.imageView.hidden = NO;
     self.indicatorView.hidden = YES;
     self.titleLabel.text =  [LNRefreshHandler localizedStringForKey:LNRefreshPullToRefresh];
-    self.imageView.transform = CGAffineTransformIdentity;
+    [UIView animateWithDuration:self.arrowTime animations:^{
+        self.arrowTime = 0.0;
+        self.imageView.transform = CGAffineTransformIdentity;
+    }];
 }
 
 # pragma mark - GIF Action
@@ -326,9 +293,7 @@
 
 - (void)setupSubViews_GIF {
     [self.animatorView addSubview:self.gifView];
-    [self.gifView stopAnimating];
-    NSArray *images = self.stateImages[@(0)];
-    self.gifView.image = images.firstObject;
+    [self endRefreshAnimation_GIF:nil];
 }
 
 - (void)layoutHeaderView_GIF {
@@ -352,14 +317,16 @@
 
 - (void)endRefreshAnimation_GIF:(LNRefreshComponent *)view {
     [self.gifView stopAnimating];
-    NSArray *images = self.stateImages[@(0)];
-    self.gifView.image = images.firstObject;
+    if (self.stateImages.count > 0) {
+        NSArray *images = self.stateImages[@(0)];
+        self.gifView.image = images.firstObject;
+    }
     [self refreshView:(LNRefreshComponent *)self.animatorView progress:0];
 }
 
 - (void)refreshView_GIF:(LNRefreshComponent *)view progress:(CGFloat)progress {
     NSArray *images = self.stateImages[@(LNRefreshState_Normal)];
-    if (self.state != LNRefreshState_Normal || images.count == 0) return;
+    if (self.state != LNRefreshState_PullToRefresh || images.count == 0) return;
     [self.gifView stopAnimating];
     NSUInteger index = images.count * progress;
     if (index >= images.count) index = images.count - 1;
@@ -373,8 +340,6 @@
 # pragma mark - DIY Action
 - (void)setupHeaderView_DIY {}
 - (void)layoutHeaderView_DIY {}
-- (void)refreshHeaderView_DIY:(LNRefreshState)state {}
-- (void)endRefreshAnimation_DIY:(LNRefreshComponent *)view {}
-- (void)startRefreshAnimation_DIY:(LNRefreshComponent *)view {}
+- (void)refreshHeaderView_DIY:(LNRefreshComponent *)view state:(LNRefreshState)state {}
 - (void)refreshView_DIY:(LNRefreshComponent *)view progress:(CGFloat)progress {}
 @end

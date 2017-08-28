@@ -26,6 +26,15 @@
 		AF15ECAD1F4EBDCA0010973D /* LNHeaderDIYAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECA91F4EBDCA0010973D /* LNHeaderDIYAnimator.m */; };
 		AF15ECAE1F4EBDCA0010973D /* YLoadingPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = AF15ECAA1F4EBDCA0010973D /* YLoadingPanel.h */; };
 		AF15ECAF1F4EBDCA0010973D /* YLoadingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECAB1F4EBDCA0010973D /* YLoadingPanel.m */; };
+		AF15ECB31F4ECF4A0010973D /* LNHeaderJDAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECB21F4ECF4A0010973D /* LNHeaderJDAnimator.m */; };
+		AF15ECBB1F4FBC6B0010973D /* LNHeaderTmallAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECBA1F4FBC6B0010973D /* LNHeaderTmallAnimator.m */; };
+		AF15ECC81F4FBD020010973D /* LNHeaderKaolaAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECC41F4FBD020010973D /* LNHeaderKaolaAnimator.m */; };
+		AF15ECCF1F4FBD5A0010973D /* LNHeaderTaobaoAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECCE1F4FBD5A0010973D /* LNHeaderTaobaoAnimator.m */; };
+		AF15ECD51F4FC3D80010973D /* frontpage_refresh@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = AF15ECD11F4FC3D80010973D /* frontpage_refresh@2x.gif */; };
+		AF15ECD61F4FC3D80010973D /* frontpage_refresh@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = AF15ECD21F4FC3D80010973D /* frontpage_refresh@3x.gif */; };
+		AF15ECD71F4FC3D80010973D /* frontpage_refresh_release@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = AF15ECD31F4FC3D80010973D /* frontpage_refresh_release@2x.gif */; };
+		AF15ECD81F4FC3D80010973D /* frontpage_refresh_release@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = AF15ECD41F4FC3D80010973D /* frontpage_refresh_release@3x.gif */; };
+		AF15ECDB1F4FC8F60010973D /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECDA1F4FC8F60010973D /* UIImage+animatedGIF.m */; };
 		AF1F98FD1F1C63590074E638 /* LNRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF29B5781F0C900300348F99 /* LNRefresh.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		AF1F99001F1CAA660074E638 /* DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1F98FF1F1CAA660074E638 /* DemoVC.m */; };
 		AF1F991E1F2077D80074E638 /* LNHeaderAnimator+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1F991D1F2077D80074E638 /* LNHeaderAnimator+Analysis.m */; };
@@ -36,6 +45,8 @@
 		AF6450E81F32C0B700DB8520 /* LNRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6450E61F32C0B700DB8520 /* LNRefreshConst.m */; };
 		AFA03C581F272DAA00896ED8 /* lnrefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = AFA03C571F272DAA00896ED8 /* lnrefresh.json */; };
 		AFA03C621F27546500896ED8 /* LNRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AFA03C611F27546500896ED8 /* LNRefresh.bundle */; };
+		AFB97EF31F53C12100D6629F /* LNHeaderMeituanAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB97EF21F53C12100D6629F /* LNHeaderMeituanAnimator.m */; };
+		AFB97EFA1F53FC3B00D6629F /* LNHeaderNetEaseNewsAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB97EF91F53FC3B00D6629F /* LNHeaderNetEaseNewsAnimator.m */; };
 		AFC94B491F1470C800D635BC /* LNRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = AFC94B471F1470C800D635BC /* LNRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFC94B4A1F1470C800D635BC /* LNRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC94B481F1470C800D635BC /* LNRefreshComponent.m */; };
 		AFC94B741F14CB5700D635BC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC94B731F14CB5700D635BC /* main.m */; };
@@ -81,6 +92,20 @@
 		AF15ECA91F4EBDCA0010973D /* LNHeaderDIYAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderDIYAnimator.m; sourceTree = "<group>"; };
 		AF15ECAA1F4EBDCA0010973D /* YLoadingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLoadingPanel.h; sourceTree = "<group>"; };
 		AF15ECAB1F4EBDCA0010973D /* YLoadingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLoadingPanel.m; sourceTree = "<group>"; };
+		AF15ECB11F4ECF4A0010973D /* LNHeaderJDAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderJDAnimator.h; sourceTree = "<group>"; };
+		AF15ECB21F4ECF4A0010973D /* LNHeaderJDAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderJDAnimator.m; sourceTree = "<group>"; };
+		AF15ECB91F4FBC6B0010973D /* LNHeaderTmallAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderTmallAnimator.h; sourceTree = "<group>"; };
+		AF15ECBA1F4FBC6B0010973D /* LNHeaderTmallAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderTmallAnimator.m; sourceTree = "<group>"; };
+		AF15ECC31F4FBD020010973D /* LNHeaderKaolaAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderKaolaAnimator.h; sourceTree = "<group>"; };
+		AF15ECC41F4FBD020010973D /* LNHeaderKaolaAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderKaolaAnimator.m; sourceTree = "<group>"; };
+		AF15ECCD1F4FBD5A0010973D /* LNHeaderTaobaoAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderTaobaoAnimator.h; sourceTree = "<group>"; };
+		AF15ECCE1F4FBD5A0010973D /* LNHeaderTaobaoAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderTaobaoAnimator.m; sourceTree = "<group>"; };
+		AF15ECD11F4FC3D80010973D /* frontpage_refresh@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "frontpage_refresh@2x.gif"; sourceTree = "<group>"; };
+		AF15ECD21F4FC3D80010973D /* frontpage_refresh@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "frontpage_refresh@3x.gif"; sourceTree = "<group>"; };
+		AF15ECD31F4FC3D80010973D /* frontpage_refresh_release@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "frontpage_refresh_release@2x.gif"; sourceTree = "<group>"; };
+		AF15ECD41F4FC3D80010973D /* frontpage_refresh_release@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "frontpage_refresh_release@3x.gif"; sourceTree = "<group>"; };
+		AF15ECD91F4FC8F60010973D /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		AF15ECDA1F4FC8F60010973D /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		AF1F98FE1F1CAA660074E638 /* DemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC.h; sourceTree = "<group>"; };
 		AF1F98FF1F1CAA660074E638 /* DemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC.m; sourceTree = "<group>"; };
 		AF1F991C1F2077D80074E638 /* LNHeaderAnimator+Analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LNHeaderAnimator+Analysis.h"; sourceTree = "<group>"; };
@@ -98,6 +123,10 @@
 		AFA03C5D1F2734C000896ED8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		AFA03C5E1F2734C100896ED8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		AFA03C611F27546500896ED8 /* LNRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LNRefresh.bundle; sourceTree = "<group>"; };
+		AFB97EF11F53C12100D6629F /* LNHeaderMeituanAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderMeituanAnimator.h; sourceTree = "<group>"; };
+		AFB97EF21F53C12100D6629F /* LNHeaderMeituanAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderMeituanAnimator.m; sourceTree = "<group>"; };
+		AFB97EF81F53FC3B00D6629F /* LNHeaderNetEaseNewsAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderNetEaseNewsAnimator.h; sourceTree = "<group>"; };
+		AFB97EF91F53FC3B00D6629F /* LNHeaderNetEaseNewsAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderNetEaseNewsAnimator.m; sourceTree = "<group>"; };
 		AFC94B471F1470C800D635BC /* LNRefreshComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNRefreshComponent.h; sourceTree = "<group>"; };
 		AFC94B481F1470C800D635BC /* LNRefreshComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRefreshComponent.m; sourceTree = "<group>"; };
 		AFC94B701F14CB5600D635BC /* LNRefreshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNRefreshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +191,56 @@
 				AF15ECAB1F4EBDCA0010973D /* YLoadingPanel.m */,
 			);
 			path = LNHeaderDIYAnimator;
+			sourceTree = "<group>";
+		};
+		AF15ECB01F4ECF1A0010973D /* LNHeaderJDAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				AF15ECB11F4ECF4A0010973D /* LNHeaderJDAnimator.h */,
+				AF15ECB21F4ECF4A0010973D /* LNHeaderJDAnimator.m */,
+			);
+			path = LNHeaderJDAnimator;
+			sourceTree = "<group>";
+		};
+		AF15ECB81F4FBC5F0010973D /* LNHeaderTmallAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				AF15ECD01F4FC3D80010973D /* Tmall */,
+				AF15ECB91F4FBC6B0010973D /* LNHeaderTmallAnimator.h */,
+				AF15ECBA1F4FBC6B0010973D /* LNHeaderTmallAnimator.m */,
+				AF15ECD91F4FC8F60010973D /* UIImage+animatedGIF.h */,
+				AF15ECDA1F4FC8F60010973D /* UIImage+animatedGIF.m */,
+			);
+			path = LNHeaderTmallAnimator;
+			sourceTree = "<group>";
+		};
+		AF15ECC21F4FBD020010973D /* LNHeaderKaolaAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				AF15ECC31F4FBD020010973D /* LNHeaderKaolaAnimator.h */,
+				AF15ECC41F4FBD020010973D /* LNHeaderKaolaAnimator.m */,
+			);
+			path = LNHeaderKaolaAnimator;
+			sourceTree = "<group>";
+		};
+		AF15ECC51F4FBD020010973D /* LNHeaderTaobaoAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				AF15ECCD1F4FBD5A0010973D /* LNHeaderTaobaoAnimator.h */,
+				AF15ECCE1F4FBD5A0010973D /* LNHeaderTaobaoAnimator.m */,
+			);
+			path = LNHeaderTaobaoAnimator;
+			sourceTree = "<group>";
+		};
+		AF15ECD01F4FC3D80010973D /* Tmall */ = {
+			isa = PBXGroup;
+			children = (
+				AF15ECD11F4FC3D80010973D /* frontpage_refresh@2x.gif */,
+				AF15ECD21F4FC3D80010973D /* frontpage_refresh@3x.gif */,
+				AF15ECD31F4FC3D80010973D /* frontpage_refresh_release@2x.gif */,
+				AF15ECD41F4FC3D80010973D /* frontpage_refresh_release@3x.gif */,
+			);
+			path = Tmall;
 			sourceTree = "<group>";
 		};
 		AF1F991B1F2077D80074E638 /* LNRefreshAnalysis */ = {
@@ -229,9 +308,33 @@
 			path = LNRefresh;
 			sourceTree = "<group>";
 		};
+		AFB97EEF1F53C10400D6629F /* LNHeaderMeituanAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				AFB97EF11F53C12100D6629F /* LNHeaderMeituanAnimator.h */,
+				AFB97EF21F53C12100D6629F /* LNHeaderMeituanAnimator.m */,
+			);
+			path = LNHeaderMeituanAnimator;
+			sourceTree = "<group>";
+		};
+		AFB97EF71F53FC3000D6629F /* LNHeaderNetEaseNewsAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				AFB97EF81F53FC3B00D6629F /* LNHeaderNetEaseNewsAnimator.h */,
+				AFB97EF91F53FC3B00D6629F /* LNHeaderNetEaseNewsAnimator.m */,
+			);
+			path = LNHeaderNetEaseNewsAnimator;
+			sourceTree = "<group>";
+		};
 		AFC94B711F14CB5700D635BC /* LNRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AFB97EF71F53FC3000D6629F /* LNHeaderNetEaseNewsAnimator */,
+				AFB97EEF1F53C10400D6629F /* LNHeaderMeituanAnimator */,
+				AF15ECC21F4FBD020010973D /* LNHeaderKaolaAnimator */,
+				AF15ECC51F4FBD020010973D /* LNHeaderTaobaoAnimator */,
+				AF15ECB81F4FBC5F0010973D /* LNHeaderTmallAnimator */,
+				AF15ECB01F4ECF1A0010973D /* LNHeaderJDAnimator */,
 				AF1F991B1F2077D80074E638 /* LNRefreshAnalysis */,
 				AFC94BB61F16397600D635BC /* HomeVC.h */,
 				AFC94BB71F16397600D635BC /* HomeVC.m */,
@@ -407,8 +510,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFC94B7D1F14CB5700D635BC /* Main.storyboard in Resources */,
+				AF15ECD61F4FC3D80010973D /* frontpage_refresh@3x.gif in Resources */,
+				AF15ECD51F4FC3D80010973D /* frontpage_refresh@2x.gif in Resources */,
 				AFA03C621F27546500896ED8 /* LNRefresh.bundle in Resources */,
+				AF15ECD71F4FC3D80010973D /* frontpage_refresh_release@2x.gif in Resources */,
 				AFC94B821F14CB5700D635BC /* LaunchScreen.storyboard in Resources */,
+				AF15ECD81F4FC3D80010973D /* frontpage_refresh_release@3x.gif in Resources */,
 				AFC94B7F1F14CB5700D635BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,9 +572,16 @@
 			files = (
 				AFC94BB81F16397600D635BC /* HomeVC.m in Sources */,
 				AF1F991E1F2077D80074E638 /* LNHeaderAnimator+Analysis.m in Sources */,
+				AF15ECCF1F4FBD5A0010973D /* LNHeaderTaobaoAnimator.m in Sources */,
+				AFB97EFA1F53FC3B00D6629F /* LNHeaderNetEaseNewsAnimator.m in Sources */,
+				AF15ECBB1F4FBC6B0010973D /* LNHeaderTmallAnimator.m in Sources */,
+				AFB97EF31F53C12100D6629F /* LNHeaderMeituanAnimator.m in Sources */,
 				AFC94B771F14CB5700D635BC /* AppDelegate.m in Sources */,
 				AFC94B741F14CB5700D635BC /* main.m in Sources */,
 				AF1F99001F1CAA660074E638 /* DemoVC.m in Sources */,
+				AF15ECDB1F4FC8F60010973D /* UIImage+animatedGIF.m in Sources */,
+				AF15ECC81F4FBD020010973D /* LNHeaderKaolaAnimator.m in Sources */,
+				AF15ECB31F4ECF4A0010973D /* LNHeaderJDAnimator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

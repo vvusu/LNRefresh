@@ -15,9 +15,20 @@ typedef NS_ENUM(NSInteger, LNDemoVCType) {
     LNDemoVCType_TextView
 };
 
+typedef NS_ENUM(NSInteger, LNDemoDIYType) {
+    LNDemoDIYType_NOR = 0,
+    LNDemoDIYType_DJ,
+    LNDemoDIYType_TMall,
+    LNDemoDIYType_TaoBao,
+    LNDemoDIYType_KaoLa,
+    LNDemoDIYType_Meituan,
+    LNDemoDIYType_NetEaseNews
+};
+
 @interface DemoVC : UIViewController
 @property (nonatomic, assign) BOOL isGIF;
 @property (nonatomic, assign) BOOL isDIY;
 @property (nonatomic, assign) LNDemoVCType vcType;
+@property (nonatomic, assign) LNDemoDIYType DIYType;
 
 @end

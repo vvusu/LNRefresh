@@ -24,9 +24,6 @@
     NSString *currentLanguage = languages.firstObject;
     NSLog(@"LN___当前语言：%@",currentLanguage);
     // 切换语言
-//    NSArray *lans = @[@"en"];
-//    [[NSUserDefaults standardUserDefaults] setObject:lans forKey:@"AppleLanguages"];
-    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"HomeVCCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -34,7 +31,8 @@
     self.tableView.tableFooterView = [[UIView alloc]init];
     self.dataArr = @[@"🐹UITableView",@"🐼UITableView_GIF",@"🐽UITableView_DIY",
                      @"🐮UICollectionView",@"🦁UICollectionView_GIF",@"🐸UICollectionView_DIY",
-                     @"🐯UIWebView",@"🐶UITextView"];
+                     @"🐯UIWebView",@"🐶UITextView",@"🥑京东",@"🍅天猫",@"🍆淘宝",@"🥒考拉海购",
+                     @"🥕美团外卖",@"🌽网易新闻"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,6 +91,42 @@
             break;
         case 7: {
             vc.vcType = LNDemoVCType_TextView;
+        }
+            break;
+        case 8: {
+            vc.isDIY = YES;
+            vc.vcType = LNDemoVCType_TableView;
+            vc.DIYType = LNDemoDIYType_DJ;
+        }
+            break;
+        case 9: {
+            vc.isDIY = YES;
+            vc.vcType = LNDemoVCType_TableView;
+            vc.DIYType = LNDemoDIYType_TMall;
+        }
+            break;
+        case 10: {
+            vc.isDIY = YES;
+            vc.vcType = LNDemoVCType_TableView;
+            vc.DIYType = LNDemoDIYType_TaoBao;
+        }
+            break;
+        case 11: {
+            vc.isDIY = YES;
+            vc.vcType = LNDemoVCType_TableView;
+            vc.DIYType = LNDemoDIYType_KaoLa;
+        }
+            break;
+        case 12: {
+            vc.isDIY = YES;
+            vc.vcType = LNDemoVCType_TableView;
+            vc.DIYType = LNDemoDIYType_Meituan;
+        }
+            break;
+        case 13: {
+            vc.isDIY = YES;
+            vc.vcType = LNDemoVCType_TableView;
+            vc.DIYType = LNDemoDIYType_NetEaseNews;
         }
             break;
         default:

@@ -15,6 +15,8 @@ typedef NS_ENUM(NSInteger, LNRefreshHeaderType) {
 };
 
 @interface LNHeaderAnimator : LNRefreshAnimator
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIImageView *gifView;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImageView *bgImageView;
 @property (nonatomic, assign) LNRefreshHeaderType headerType;
@@ -23,5 +25,10 @@ typedef NS_ENUM(NSInteger, LNRefreshHeaderType) {
 - (void)changeHeaderType:(LNRefreshHeaderType)type;
 - (void)setImages:(NSArray *)images forState:(LNRefreshState)state;
 - (void)setImages:(NSArray *)images duration:(NSTimeInterval)duration forState:(LNRefreshState)state;
+
+- (void)setupHeaderView_DIY;
+- (void)layoutHeaderView_DIY;
+- (void)refreshHeaderView_DIY:(LNRefreshComponent *)view state:(LNRefreshState)state;
+- (void)refreshView_DIY:(LNRefreshComponent *)view progress:(CGFloat)progress;
 
 @end
