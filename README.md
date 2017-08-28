@@ -26,20 +26,14 @@ LNRefresh Is a lightweight, can dynamically expand the drop-down refresh compone
 ## Demo
 GIF picture from [华尔街见闻](https://wallstreetcn.com/)
 
-#### Usually style
-<p align="left">
-    <img src="./images/demo_1.gif" style="zoom:60%" align=center/>
-</p>
-
-#### Dynamically change the style
-<p align="left">
-    <img src="./images/demo_2.gif" style="zoom:60%" align=center/>
-</p>
+| Style   | Demo |
+| ---   | --- |
+| Usually style | ![](./images/demo_1.gif) |
+| Dynamically change the style | ![](./images/demo_2.gif) |
 
 ## Customize Demos
-
-| APP | Demo |
-| --- | --- |
+| APP   | Demo |
+| ---   | --- |
 | 京东商城 | ![](./images/demo_jd.gif) |
 | 天猫商城 | ![](./images/demo_tmall.gif) |
 | 淘宝商城 | ![](./images/demo_taobao.gif) |
