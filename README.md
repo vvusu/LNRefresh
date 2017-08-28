@@ -156,8 +156,6 @@ You Need to inherit LNHeaderAnimator，Rewrite the following method.
 - (void)setupHeaderView_DIY;
 - (void)layoutHeaderView_DIY;
 - (void)refreshHeaderView_DIY:(LNRefreshState)state;
-- (void)endRefreshAnimation_DIY:(LNRefreshComponent *)view;
-- (void)startRefreshAnimation_DIY:(LNRefreshComponent *)view;
 - (void)refreshView_DIY:(LNRefreshComponent *)view progress:(CGFloat)progress;
 ```
 Example: `LNHeaderDIYAnimator.m`
