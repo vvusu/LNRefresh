@@ -69,7 +69,7 @@
 
 - (void)endRefreshAnimation_DIY:(LNRefreshComponent *)view {
     self.titleLabel.text = @"下拉推荐";
-    self.gifView.image = [UIImage imageNamed:@"refresh_pull_00"];
+    self.gifView.image = [UIImage imageNamed:@"refresh_pull_0"];
 }
 
 - (void)startRefreshAnimation_DIY:(LNRefreshComponent *)view {
@@ -85,6 +85,7 @@
 }
 
 - (void)refreshView_DIY:(LNRefreshComponent *)view progress:(CGFloat)progress {
+    if (progress > 1.0) { return; }
     [self.gifView stopAnimating];
     NSUInteger index = 20 * progress;
     if (index >= self.gifViewImages.count) index = self.gifViewImages.count - 1;

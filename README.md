@@ -40,6 +40,7 @@ GIF picture from [华尔街见闻](https://wallstreetcn.com/)
 | 考拉海购 | ![](./images/demo_kaola.gif) |
 | 美团外卖 | ![](./images/demo_meituan.gif) |
 | 网易新闻 | ![](./images/demo_neteasenews.gif) |
+| 今日头条 | ![](./images/demo_toutiao.gif) |
 
 ## Installation
 ### CocoaPods

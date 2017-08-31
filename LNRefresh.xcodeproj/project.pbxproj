@@ -41,6 +41,7 @@
 		AF29B5891F0C900300348F99 /* LNRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = AF29B57B1F0C900300348F99 /* LNRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF29B5C41F0CC04600348F99 /* NSObject+LNRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = AF29B5C21F0CC04600348F99 /* NSObject+LNRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF29B5C51F0CC04600348F99 /* NSObject+LNRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B5C31F0CC04600348F99 /* NSObject+LNRefresh.m */; };
+		AF334A021F56FC9C004B1A1F /* LNHeaderToutiaoAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF334A011F56FC9C004B1A1F /* LNHeaderToutiaoAnimator.m */; };
 		AF6450E71F32C0B700DB8520 /* LNRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = AF6450E51F32C0B700DB8520 /* LNRefreshConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF6450E81F32C0B700DB8520 /* LNRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6450E61F32C0B700DB8520 /* LNRefreshConst.m */; };
 		AFA03C581F272DAA00896ED8 /* lnrefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = AFA03C571F272DAA00896ED8 /* lnrefresh.json */; };
@@ -115,6 +116,8 @@
 		AF29B57C1F0C900300348F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF29B5C21F0CC04600348F99 /* NSObject+LNRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LNRefresh.h"; sourceTree = "<group>"; };
 		AF29B5C31F0CC04600348F99 /* NSObject+LNRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LNRefresh.m"; sourceTree = "<group>"; };
+		AF334A001F56FC9C004B1A1F /* LNHeaderToutiaoAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderToutiaoAnimator.h; sourceTree = "<group>"; };
+		AF334A011F56FC9C004B1A1F /* LNHeaderToutiaoAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderToutiaoAnimator.m; sourceTree = "<group>"; };
 		AF6450E51F32C0B700DB8520 /* LNRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNRefreshConst.h; sourceTree = "<group>"; };
 		AF6450E61F32C0B700DB8520 /* LNRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRefreshConst.m; sourceTree = "<group>"; };
 		AFA03C571F272DAA00896ED8 /* lnrefresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lnrefresh.json; sourceTree = "<group>"; };
@@ -308,6 +311,15 @@
 			path = LNRefresh;
 			sourceTree = "<group>";
 		};
+		AF3349FF1F56FC88004B1A1F /* LNHeaderToutiaoAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				AF334A001F56FC9C004B1A1F /* LNHeaderToutiaoAnimator.h */,
+				AF334A011F56FC9C004B1A1F /* LNHeaderToutiaoAnimator.m */,
+			);
+			path = LNHeaderToutiaoAnimator;
+			sourceTree = "<group>";
+		};
 		AFB97EEF1F53C10400D6629F /* LNHeaderMeituanAnimator */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +341,7 @@
 		AFC94B711F14CB5700D635BC /* LNRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AF3349FF1F56FC88004B1A1F /* LNHeaderToutiaoAnimator */,
 				AFB97EF71F53FC3000D6629F /* LNHeaderNetEaseNewsAnimator */,
 				AFB97EEF1F53C10400D6629F /* LNHeaderMeituanAnimator */,
 				AF15ECC21F4FBD020010973D /* LNHeaderKaolaAnimator */,
@@ -571,6 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFC94BB81F16397600D635BC /* HomeVC.m in Sources */,
+				AF334A021F56FC9C004B1A1F /* LNHeaderToutiaoAnimator.m in Sources */,
 				AF1F991E1F2077D80074E638 /* LNHeaderAnimator+Analysis.m in Sources */,
 				AF15ECCF1F4FBD5A0010973D /* LNHeaderTaobaoAnimator.m in Sources */,
 				AFB97EFA1F53FC3B00D6629F /* LNHeaderNetEaseNewsAnimator.m in Sources */,

@@ -32,7 +32,7 @@
     self.dataArr = @[@"🐹UITableView",@"🐼UITableView_GIF",@"🐽UITableView_DIY",
                      @"🐮UICollectionView",@"🦁UICollectionView_GIF",@"🐸UICollectionView_DIY",
                      @"🐯UIWebView",@"🐶UITextView",@"🥑京东",@"🍅天猫",@"🍆淘宝",@"🥒考拉海购",
-                     @"🥕美团外卖",@"🌽网易新闻"];
+                     @"🥕美团外卖",@"🌽网易新闻",@"🍠今日头条"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -127,6 +127,12 @@
             vc.isDIY = YES;
             vc.vcType = LNDemoVCType_TableView;
             vc.DIYType = LNDemoDIYType_NetEaseNews;
+        }
+            break;
+        case 14: {
+            vc.isDIY = YES;
+            vc.vcType = LNDemoVCType_TableView;
+            vc.DIYType = LNDemoDIYType_Toutiao;
         }
             break;
         default:
