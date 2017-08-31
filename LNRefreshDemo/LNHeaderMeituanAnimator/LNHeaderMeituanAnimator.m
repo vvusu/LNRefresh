@@ -10,6 +10,7 @@
 
 @interface LNHeaderMeituanAnimator()
 @property (nonatomic, assign) CGRect GifViewRect;
+@property (nonatomic, strong) UIImageView *meituanGifView;
 @end
 
 @implementation LNHeaderMeituanAnimator
@@ -22,23 +23,30 @@
     return diyAnimator;
 }
 
+- (UIImageView *)meituanGifView {
+    if (!_meituanGifView) {
+        _meituanGifView = [[UIImageView alloc]init];
+    }
+    return _meituanGifView;
+}
+
 - (void)setupHeaderView_DIY {
-    [self.animatorView addSubview:self.gifView];
-    self.gifView.image = [UIImage imageNamed:@"icon_kangaroo_home_pull_down_loading_1"];
+    [self.animatorView addSubview:self.meituanGifView];
+    self.meituanGifView.image = [UIImage imageNamed:@"icon_kangaroo_home_pull_down_loading_1"];
     NSMutableArray *idleImages = [NSMutableArray array];
     for (NSUInteger i = 1; i <= 15; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_kangaroo_home_pull_down_loading_%zd", i]];
         [idleImages addObject:image];
     }
-    self.gifView.animationImages = idleImages;
-    self.gifView.animationDuration = 0.5;
+    self.meituanGifView.animationImages = idleImages;
+    self.meituanGifView.animationDuration = 0.5;
 }
 
 - (void)layoutHeaderView_DIY {
     if (self.state == LNRefreshState_Normal) {
         CGRect react = self.animatorView.frame;
         self.GifViewRect = CGRectMake(react.size.width/2.0, react.size.height - 5, 0, 0);
-        self.gifView.frame = self.GifViewRect;
+        self.meituanGifView.frame = self.GifViewRect;
     }
 }
 
@@ -59,15 +67,15 @@
 
 - (void)startRefreshAnimation_DIY:(LNRefreshComponent *)view {
     [self refreshView_DIY:nil progress:1];
-    [self.gifView startAnimating];
+    [self.meituanGifView startAnimating];
 }
 
 - (void)refreshView_DIY:(LNRefreshComponent *)view progress:(CGFloat)progress {
     if (progress > 1.0) { return; }
-    self.gifView.frame = CGRectMake(self.GifViewRect.origin.x - 84*progress,
-                                    self.GifViewRect.origin.y - 64.0*progress,
-                                    self.GifViewRect.size.width + 168*progress,
-                                    self.GifViewRect.size.height + 64.0*progress);
+    self.meituanGifView.frame = CGRectMake(self.GifViewRect.origin.x - 84*progress,
+                                           self.GifViewRect.origin.y - 64.0*progress,
+                                           self.GifViewRect.size.width + 168*progress,
+                                           self.GifViewRect.size.height + 64.0*progress);
 }
 
 @end

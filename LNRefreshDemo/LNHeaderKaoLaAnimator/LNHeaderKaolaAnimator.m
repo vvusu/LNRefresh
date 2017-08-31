@@ -30,10 +30,7 @@
 
 - (UIView *)kaolaBGView {
     if (!_kaolaBGView) {
-        _kaolaBGView = [[UIView alloc]initWithFrame:CGRectMake(0,
-                                                               0,
-                                                               self.animatorView.frame.size.width,
-                                                               self.animatorView.frame.size.height - 10)];
+        _kaolaBGView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.animatorView.frame.size.width, self.animatorView.frame.size.height/2 + 17)];
         _kaolaBGView.clipsToBounds = YES;
         [_kaolaBGView addSubview:self.kaolaView1];
         [_kaolaBGView addSubview:self.kaolaView2];

@@ -94,6 +94,10 @@
 - (void)changeHeaderAnimatorTyoe:(NSNotification *)notification {
     if (!self.ignoreGlobSetting) {
         [self setupSubViews];
+        if (self.state == LNRefreshState_Refreshing) {
+            self.state = LNRefreshState_Normal;
+            [self refreshView:nil state:LNRefreshState_Refreshing];
+        }
     }
 }
 
@@ -208,8 +212,8 @@
                 case LNRefreshState_PullToRefresh:
                     [self endRefreshAnimation_GIF:view];
                     break;
-                case LNRefreshState_Refreshing:
                 case LNRefreshState_WillRefresh:
+                case LNRefreshState_Refreshing:
                     [self startRefreshAnimation_GIF:state];
                     break;
                 case LNRefreshState_NoMoreData:

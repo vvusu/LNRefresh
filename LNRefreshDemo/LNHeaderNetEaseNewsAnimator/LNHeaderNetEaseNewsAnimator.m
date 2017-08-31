@@ -38,7 +38,7 @@
     CGRect react = self.animatorView.frame;
     self.gifView.frame = CGRectMake(0, 0, 35, 35);
     self.gifView.center = CGPointMake((react.size.width - 80)/2, react.size.height/2.0);
-    self.titleLabel.frame = CGRectMake((react.size.width - 100)/2 + 35, react.size.height - 45, 100, 30);
+    self.titleLabel.frame = CGRectMake((react.size.width - 100)/2 + 35, react.size.height/2.0 - 15, 100, 30);
 }
 
 - (void)refreshHeaderView_DIY:(LNRefreshComponent *)view state:(LNRefreshState)state {

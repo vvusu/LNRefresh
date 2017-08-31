@@ -9,6 +9,10 @@
 #import "LNHeaderTmallAnimator.h"
 #import "UIImage+animatedGIF.h"
 
+@interface LNHeaderTmallAnimator()
+@property (nonatomic, strong) UIImageView *tmallGifView;
+@end
+
 @implementation LNHeaderTmallAnimator
 
 + (instancetype)createAnimator {
@@ -19,19 +23,26 @@
     return diyAnimator;
 }
 
+- (UIImageView *)tmallGifView {
+    if (!_tmallGifView) {
+        _tmallGifView = [[UIImageView alloc]init];
+    }
+    return _tmallGifView;
+}
+
 - (void)setupHeaderView_DIY {
     self.titleLabel.font = [UIFont systemFontOfSize:12];
     self.titleLabel.textColor = [UIColor grayColor];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.text = @"下拉刷新";
     [self.animatorView addSubview:self.titleLabel];
-    [self.animatorView addSubview:self.gifView];
+    [self.animatorView addSubview:self.tmallGifView];
 }
 
 - (void)layoutHeaderView_DIY {
     CGRect react = self.animatorView.frame;
     self.titleLabel.frame = CGRectMake(0, react.size.height - 25, react.size.width, 20);
-    self.gifView.frame = CGRectMake(0, react.size.height - 85, react.size.width, 80);
+    self.tmallGifView.frame = CGRectMake(0, react.size.height - 85, react.size.width, 80);
 }
 
 - (void)refreshHeaderView_DIY:(LNRefreshComponent *)view state:(LNRefreshState)state {
@@ -56,13 +67,13 @@
 - (void)endRefreshAnimation_DIY:(LNRefreshComponent *)view {
     self.titleLabel.text = @"下拉刷新";
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"frontpage_refresh@2x" withExtension:@"gif"];
-    self.gifView.image = [UIImage animatedImageWithAnimatedGIFURL:url];
+    self.tmallGifView.image = [UIImage animatedImageWithAnimatedGIFURL:url];
 }
 
 - (void)startRefreshAnimation_DIY:(LNRefreshComponent *)view {
     self.titleLabel.text = @"正在刷新";
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"frontpage_refresh_release@2x" withExtension:@"gif"];
-    self.gifView.image = [UIImage animatedImageWithAnimatedGIFURL:url];
+    self.tmallGifView.image = [UIImage animatedImageWithAnimatedGIFURL:url];
 }
 
 @end
