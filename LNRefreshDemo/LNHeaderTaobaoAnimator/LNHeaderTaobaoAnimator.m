@@ -76,8 +76,8 @@
 
 - (void)layoutHeaderView_DIY {
     CGRect react = self.animatorView.frame;
-    self.arrowLayer.position = CGPointMake(react.size.width/2 - 50, react.size.height/2 - 3);
-    self.circleLayer.position = CGPointMake(react.size.width/2 - 50, react.size.height/2 - 3);
+    self.arrowLayer.position = CGPointMake(react.size.width/2 - 40, react.size.height/2);
+    self.circleLayer.position = CGPointMake(react.size.width/2 - 40, react.size.height/2);
     self.titleLabel.frame = CGRectMake((react.size.width - 100)/2 + 35, react.size.height/2 - 15, 100, 30);
 }
 

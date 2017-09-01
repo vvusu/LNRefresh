@@ -34,13 +34,14 @@ GIF picture from [华尔街见闻](https://wallstreetcn.com/)
 ## Customize Demos
 | APP   | Demo |
 | ---   | --- |
-| 京东商城 | ![](./images/demo_jd.gif) |
-| 天猫商城 | ![](./images/demo_tmall.gif) |
-| 淘宝商城 | ![](./images/demo_taobao.gif) |
+| 京东 | ![](./images/demo_jd.gif) |
+| 天猫 | ![](./images/demo_tmall.gif) |
+| 淘宝 | ![](./images/demo_taobao.gif) |
 | 考拉海购 | ![](./images/demo_kaola.gif) |
 | 美团外卖 | ![](./images/demo_meituan.gif) |
 | 网易新闻 | ![](./images/demo_neteasenews.gif) |
 | 今日头条 | ![](./images/demo_toutiao.gif) |
+| 飞猪 | ![](./images/demo_feizhu.gif) |
 
 ## Installation
 ### CocoaPods

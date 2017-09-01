@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger, LNDemoDIYType) {
     LNDemoDIYType_KaoLa,
     LNDemoDIYType_Meituan,
     LNDemoDIYType_NetEaseNews,
-    LNDemoDIYType_Toutiao
+    LNDemoDIYType_Toutiao,
+    LNDemoDIYType_Feizhu
 };
 
 @interface DemoVC : UIViewController

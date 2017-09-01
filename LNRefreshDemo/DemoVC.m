@@ -16,6 +16,7 @@
 #import "LNHeaderKaolaAnimator.h"
 #import "LNHeaderNetEaseNewsAnimator.h"
 #import "LNHeaderToutiaoAnimator.h"
+#import "LNHeaderFeizhuAnimator.h"
 
 #define LNViewW self.view.frame.size.width
 #define LNViewH self.view.frame.size.height - 64
@@ -107,7 +108,7 @@
     }
     __weak UITableView *wtableView = self.tableView;
     __weak UICollectionView *wcollectionView = self.collectionView;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         num = 0;
         if (self.vcType == LNDemoVCType_TableView) {
             [wtableView reloadData];
@@ -129,7 +130,7 @@ static NSUInteger num = 0;
     }
     __weak UITableView *wtableView = self.tableView;
     __weak UICollectionView *wcollectionView = self.collectionView;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (num > 2) {
             if (self.vcType == LNDemoVCType_TableView) {
                 [wtableView noticeNoMoreData];
@@ -234,6 +235,12 @@ static NSUInteger num = 0;
                 break;
             case LNDemoDIYType_Toutiao: {
                 [self.tableView addPullToRefresh:[LNHeaderToutiaoAnimator createAnimator] block:^{
+                    [wself pullToRefresh];
+                }];
+            }
+                break;
+            case LNDemoDIYType_Feizhu: {
+                [self.tableView addPullToRefresh:[LNHeaderFeizhuAnimator createAnimator] block:^{
                     [wself pullToRefresh];
                 }];
             }

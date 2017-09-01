@@ -31,8 +31,8 @@
     self.tableView.tableFooterView = [[UIView alloc]init];
     self.dataArr = @[@"🐹UITableView",@"🐼UITableView_GIF",@"🐽UITableView_DIY",
                      @"🐮UICollectionView",@"🦁UICollectionView_GIF",@"🐸UICollectionView_DIY",
-                     @"🐯UIWebView",@"🐶UITextView",@"🥑京东",@"🍅天猫",@"🍆淘宝",@"🥒考拉海购",
-                     @"🥕美团外卖",@"🌽网易新闻",@"🍠今日头条"];
+                     @"🐯UIWebView",@"🎹UITextView",@"🐶京东",@"🐱天猫",@"🍆淘宝",@"🐨考拉海购",
+                     @"🥕美团外卖",@"🌽网易新闻",@"🍠今日头条",@"🐷飞猪旅行"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,6 +133,12 @@
             vc.isDIY = YES;
             vc.vcType = LNDemoVCType_TableView;
             vc.DIYType = LNDemoDIYType_Toutiao;
+        }
+            break;
+        case 15: {
+            vc.isDIY = YES;
+            vc.vcType = LNDemoVCType_TableView;
+            vc.DIYType = LNDemoDIYType_Feizhu;
         }
             break;
         default:
