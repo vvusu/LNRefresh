@@ -243,7 +243,6 @@ static const char LNRefreshFooterKey = '\0';
 }
 
 #pragma mark - Remove Action
-
 - (void)removeRefreshHeader {
     [self.ln_header stopRefreshing];
     [self.ln_header removeFromSuperview];
@@ -257,7 +256,6 @@ static const char LNRefreshFooterKey = '\0';
 }
 
 #pragma mark - Action
-
 - (void)pullDownDealFooterWithItemCount:(NSInteger)itemCount cursor:(NSString *)cursor {
     [self endRefreshing];
     if (itemCount == 0) {
