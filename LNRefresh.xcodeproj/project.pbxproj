@@ -22,9 +22,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		AF15ECAC1F4EBDCA0010973D /* LNHeaderDIYAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = AF15ECA81F4EBDCA0010973D /* LNHeaderDIYAnimator.h */; };
+		AF15ECAC1F4EBDCA0010973D /* LNHeaderDIYAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = AF15ECA81F4EBDCA0010973D /* LNHeaderDIYAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF15ECAD1F4EBDCA0010973D /* LNHeaderDIYAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECA91F4EBDCA0010973D /* LNHeaderDIYAnimator.m */; };
-		AF15ECAE1F4EBDCA0010973D /* YLoadingPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = AF15ECAA1F4EBDCA0010973D /* YLoadingPanel.h */; };
+		AF15ECAE1F4EBDCA0010973D /* YLoadingPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = AF15ECAA1F4EBDCA0010973D /* YLoadingPanel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF15ECAF1F4EBDCA0010973D /* YLoadingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECAB1F4EBDCA0010973D /* YLoadingPanel.m */; };
 		AF15ECB31F4ECF4A0010973D /* LNHeaderJDAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECB21F4ECF4A0010973D /* LNHeaderJDAnimator.m */; };
 		AF15ECBB1F4FBC6B0010973D /* LNHeaderTmallAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECBA1F4FBC6B0010973D /* LNHeaderTmallAnimator.m */; };
@@ -414,9 +414,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF15ECAE1F4EBDCA0010973D /* YLoadingPanel.h in Headers */,
 				AF29B5891F0C900300348F99 /* LNRefresh.h in Headers */,
-				AF15ECAC1F4EBDCA0010973D /* LNHeaderDIYAnimator.h in Headers */,
 				AF6450E71F32C0B700DB8520 /* LNRefreshConst.h in Headers */,
 				AFEDEA141F220315003EBEA8 /* LNRefreshHandler.h in Headers */,
 				AFC94BA51F14D0BE00D635BC /* LNRefreshAnimator.h in Headers */,
@@ -424,6 +422,8 @@
 				AF29B5C41F0CC04600348F99 /* NSObject+LNRefresh.h in Headers */,
 				AFC94BBF1F1720B300D635BC /* LNFooterAnimator.h in Headers */,
 				AFC94BBB1F17209D00D635BC /* LNHeaderAnimator.h in Headers */,
+				AF15ECAE1F4EBDCA0010973D /* YLoadingPanel.h in Headers */,
+				AF15ECAC1F4EBDCA0010973D /* LNHeaderDIYAnimator.h in Headers */,
 				AFC94BB01F16157300D635BC /* LNRefreshFooter.h in Headers */,
 				AFC94B491F1470C800D635BC /* LNRefreshComponent.h in Headers */,
 			);
