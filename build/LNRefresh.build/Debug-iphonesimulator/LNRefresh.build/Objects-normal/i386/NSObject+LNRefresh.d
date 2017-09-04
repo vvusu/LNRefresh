@@ -8,7 +8,4 @@ dependencies: \
   /Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNHeaderAnimator.h \
   /Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNRefreshAnimator.h \
   /Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNRefreshConst.h \
-  /Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNFooterAnimator.h \
-  /Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNHeaderDIYAnimator/LNHeaderDIYAnimator.h \
-  /Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh.h \
-  /Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNRefreshHandler.h
+  /Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNFooterAnimator.h

@@ -171,7 +171,6 @@
 #import "LNRefreshFooter.h"
 #import "LNHeaderAnimator.h"
 #import "LNFooterAnimator.h"
-#import "LNHeaderDIYAnimator.h"
 #import <objc/runtime.h>
 
 static const char LNRefreshHeaderKey = '\0';
@@ -200,12 +199,8 @@ static const char LNRefreshFooterKey = '\0';
     return [self addPullToRefresh:[[LNHeaderAnimator alloc] init] block:block];
 }
 
-- (LNRefreshHeader *)addPullToRefreshTypeDIY:(LNRefreshComponentBlock)block {
-    return [self addPullToRefresh:[LNHeaderDIYAnimator createAnimator] block:block];
-}
-
-- (LNRefreshHeader *)addPullToRefreshWithHeight:(CGFloat)height typeDIY:(LNRefreshComponentBlock)block {
-    LNHeaderDIYAnimator *header = [LNHeaderDIYAnimator createAnimator];
+- (LNRefreshHeader *)addPullToRefreshWithHeight:(CGFloat)height block:(LNRefreshComponentBlock)block {
+    LNHeaderAnimator *header = [[LNHeaderAnimator alloc]init];
     if (height > 0) {
         header.trigger = height;
     }

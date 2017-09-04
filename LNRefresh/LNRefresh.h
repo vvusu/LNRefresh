@@ -28,7 +28,6 @@ FOUNDATION_EXPORT const unsigned char LNRefreshVersionString[];
 #import <LNRefresh/LNFooterAnimator.h>
 #import <LNRefresh/LNHeaderAnimator.h>
 #import <LNRefresh/LNRefreshHandler.h>
-#import <LNRefresh/LNHeaderDIYAnimator.h>
 
 #else
 
@@ -41,7 +40,6 @@ FOUNDATION_EXPORT const unsigned char LNRefreshVersionString[];
 #import "LNFooterAnimator.h"
 #import "LNHeaderAnimator.h"
 #import "LNRefreshHandler.h"
-#import "LNHeaderDIYAnimator.h"
 
 #endif
 
