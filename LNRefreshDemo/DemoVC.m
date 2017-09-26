@@ -115,12 +115,11 @@
         num = 0;
         if (self.vcType == LNDemoVCType_TableView) {
             [wtableView reloadData];
-            [wtableView endRefreshing];
             [wtableView pullDownDealFooterWithItemCount:self.dataArr.count cursor:@"11"];
         }
         if (self.vcType == LNDemoVCType_CollectionView) {
             [wcollectionView reloadData];
-            [wcollectionView endRefreshing];
+            [wcollectionView pullDownDealFooterWithItemCount:self.dataArr.count cursor:@"11"];
         }
     });
 }
@@ -166,13 +165,13 @@ static NSUInteger num = 0;
     self.tableView.tableFooterView = [[UIView alloc]init];
     [self.view addSubview:self.tableView];
     __weak typeof(self) wself = self;
+    [self.tableView addInfiniteScrolling:^{
+        [wself loadMoreRefresh];
+    }];
     // 默认刷新动画
     if (!self.isDIY) {
         [self.tableView addPullToRefresh:^{
             [wself pullToRefresh];
-        }];
-        [self.tableView addInfiniteScrolling:^{
-            [wself loadMoreRefresh];
         }];
         LNHeaderAnimator *haderAnimator = (LNHeaderAnimator *)self.tableView.ln_header.animator;
         haderAnimator.bgImageView.image = [UIImage imageNamed:@"refresh_bgimage_1.jpg"];
@@ -296,7 +295,7 @@ static NSUInteger num = 0;
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH) collectionViewLayout:layout];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CollectionCellID"];
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.collectionView.contentInset = UIEdgeInsetsMake(10, 10, 60, 10);
+    self.collectionView.contentInset = UIEdgeInsetsMake(10, 10, 20, 10);
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.collectionViewLayout = layout;
