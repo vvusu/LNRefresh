@@ -29,8 +29,6 @@ typedef NS_ENUM(NSInteger, LNRefreshState) {
 - (void)setupSubViews;
 - (void)layoutSubviews;
 - (void)updateAnimationView;
-- (void)endRefreshAnimation:(LNRefreshComponent *)view;
-- (void)startRefreshAnimation:(LNRefreshComponent *)view;
 - (void)refreshView:(LNRefreshComponent *)view progress:(CGFloat)progress;
 - (void)refreshView:(LNRefreshComponent *)view state:(LNRefreshState)state;
 @end

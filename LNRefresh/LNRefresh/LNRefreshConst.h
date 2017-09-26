@@ -12,8 +12,8 @@
 UIKIT_EXTERN const CGFloat LNRefreshTrigger;
 UIKIT_EXTERN const CGFloat LNRefreshIncremental;
 //Refresh Time
-UIKIT_EXTERN const CGFloat LNRefreshDIYRefreshTime;
 UIKIT_EXTERN const CGFloat LNRefreshNORRefreshTime;
+UIKIT_EXTERN const CGFloat LNRefreshDIYRefreshTime;
 //String
 UIKIT_EXTERN NSString *const LNRefreshLoading;
 UIKIT_EXTERN NSString *const LNRefreshPullToRefresh;

@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  # s.resources = "LNRefresh/LNRefresh-Resources/*"
+  s.resources = "LNRefresh-Resources/*"
   # s.preserve_paths = "LNRefresh/LNRefresh-Resources/"
 
 

@@ -58,33 +58,26 @@
     if (self.state == state) { return; }
     self.state = state;
     switch (state) {
-        case LNRefreshState_Normal:
-            [self endRefreshAnimation:view];
+        case LNRefreshState_Normal: {
+            [self.indicatorView stopAnimating];
+            self.indicatorView.hidden = YES;
+            self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshLoadingMore];
+        }
             break;
-        case LNRefreshState_Refreshing:
-            [self startRefreshAnimation:view];
+        case LNRefreshState_Refreshing: {
+            [self.indicatorView startAnimating];
+            self.indicatorView.hidden = NO;
+            self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshLoading];
+        }
             break;
         case LNRefreshState_NoMoreData:
-            [self endRefreshAnimation:view];
+            [self.indicatorView stopAnimating];
+            self.indicatorView.hidden = YES;
             self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshNoMoreData];
             break;
         default:
             break;
     }
-    [self layoutSubviews];
-}
-
-- (void)startRefreshAnimation:(LNRefreshComponent *)view {
-    [self.indicatorView startAnimating];
-    self.indicatorView.hidden = NO;
-    self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshLoading];
-    [self layoutSubviews];
-}
-
-- (void)endRefreshAnimation:(LNRefreshComponent *)view {
-    [self.indicatorView stopAnimating];
-    self.indicatorView.hidden = YES;
-    self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshLoadingMore];
     [self layoutSubviews];
 }
 

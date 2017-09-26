@@ -12,8 +12,8 @@
 const CGFloat LNRefreshTrigger = 45.0f;
 const CGFloat LNRefreshIncremental = 45.0f;
 //Refresh Time
-const CGFloat LNRefreshDIYRefreshTime = 3.0;
 const CGFloat LNRefreshNORRefreshTime = 0;
+const CGFloat LNRefreshDIYRefreshTime = 3.0;
 
 //String
 NSString *const LNRefreshLoading = @"LNRefreshLoading";

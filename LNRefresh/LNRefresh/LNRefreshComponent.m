@@ -53,6 +53,9 @@ NSString *const LNRefreshContentOffset = @"contentOffset";
         self.scrollView = (UIScrollView *)newSuperview;
         self.scrollView.alwaysBounceVertical = YES;
         self.scrollViewInsets = self.scrollView.contentInset;
+        if (@available(iOS 11.0, *)) {
+            self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
         [self addObserver];
     }
 }

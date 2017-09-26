@@ -89,7 +89,6 @@
 - (void)stop {
     [super stop];
     if (self.noMoreData) {
-        self.alpha = 1;
         [self.animator refreshView:self state:LNRefreshState_NoMoreData];
     } else {
         [self.animator refreshView:self state:LNRefreshState_Normal];

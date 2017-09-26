@@ -20,9 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Home";
-    NSArray *languages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
-    NSString *currentLanguage = languages.firstObject;
-    NSLog(@"LN___当前语言：%@",currentLanguage);
     // 切换语言
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"HomeVCCell"];
     self.tableView.delegate = self;
@@ -32,7 +29,7 @@
     self.dataArr = @[@"🐹UITableView",@"🐼UITableView_GIF",@"🐽UITableView_DIY",
                      @"🐮UICollectionView",@"🦁UICollectionView_GIF",@"🐸UICollectionView_DIY",
                      @"🐯UIWebView",@"🎹UITextView",@"🐶京东",@"🐱天猫",@"🍆淘宝",@"🐨考拉海购",
-                     @"🥕美团外卖",@"🌽网易新闻",@"🍠今日头条",@"🐷飞猪旅行"];
+                     @"🥕美团外卖",@"🌽网易新闻",@"🍠今日头条",@"🐷飞猪旅行",@"🦋饿了么"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,6 +136,12 @@
             vc.isDIY = YES;
             vc.vcType = LNDemoVCType_TableView;
             vc.DIYType = LNDemoDIYType_Feizhu;
+        }
+            break;
+        case 16: {
+            vc.isDIY = YES;
+            vc.vcType = LNDemoVCType_TableView;
+            vc.DIYType = LNDemoDIYType_ELE;
         }
             break;
         default:

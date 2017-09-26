@@ -214,7 +214,7 @@ static const char LNRefreshFooterKey = '\0';
         [self removeRefreshHeader];
     }
     LNRefreshHeader *header = [LNRefreshHeader initWithFrame:CGRectZero animator:animater block:block];
-    header.frame = CGRectMake(self.contentOffset.x, -header.animator.incremental + self.contentOffset.y, self.bounds.size.width, header.animator.incremental);
+    header.frame = CGRectMake(self.contentOffset.x, -(header.animator.incremental + self.contentInset.top), self.bounds.size.width, header.animator.incremental);
     header.animator.animatorView = header;
     self.ln_header = header;
     [self insertSubview:header atIndex:0];
@@ -237,7 +237,6 @@ static const char LNRefreshFooterKey = '\0';
     footer.animator.animatorView = footer;
     footer.hidden = YES;
     self.ln_footer = footer;
-    
     [self insertSubview:self.ln_footer atIndex:0];
     return self.ln_footer;
 }
@@ -258,6 +257,9 @@ static const char LNRefreshFooterKey = '\0';
 #pragma mark - Action
 - (void)pullDownDealFooterWithItemCount:(NSInteger)itemCount cursor:(NSString *)cursor {
     [self endRefreshing];
+    if ([cursor isKindOfClass:[NSNull class]] || [cursor isEqualToString:@"(null)"]) {
+        cursor = nil;
+    }
     if (itemCount == 0) {
         self.ln_footer.hidden = YES;
     } else {
@@ -271,6 +273,9 @@ static const char LNRefreshFooterKey = '\0';
 
 - (void)pullUpRefreshDealFooterWithItemCount:(NSInteger)itemCount cursor:(NSString *)cursor {
     [self endLoadingMore];
+    if ([cursor isKindOfClass:[NSNull class]] || [cursor isEqualToString:@"(null)"]) {
+        cursor = nil;
+    }
     if (itemCount > 0 && cursor.length > 0) {
         [self resetNoMoreData];
     } else {

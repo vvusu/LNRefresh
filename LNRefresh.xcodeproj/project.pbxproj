@@ -33,6 +33,7 @@
 		AF15ECDB1F4FC8F60010973D /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15ECDA1F4FC8F60010973D /* UIImage+animatedGIF.m */; };
 		AF1C6BC21F5D2AD7008C4DD5 /* LNHeaderDIYAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C6BBF1F5D2AD7008C4DD5 /* LNHeaderDIYAnimator.m */; };
 		AF1C6BC31F5D2AD7008C4DD5 /* YLoadingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C6BC11F5D2AD7008C4DD5 /* YLoadingPanel.m */; };
+		AF1C6BC71F5E433C008C4DD5 /* LNHeaderELEAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C6BC61F5E433C008C4DD5 /* LNHeaderELEAnimator.m */; };
 		AF1F98FD1F1C63590074E638 /* LNRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF29B5781F0C900300348F99 /* LNRefresh.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		AF1F99001F1CAA660074E638 /* DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1F98FF1F1CAA660074E638 /* DemoVC.m */; };
 		AF1F991E1F2077D80074E638 /* LNHeaderAnimator+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1F991D1F2077D80074E638 /* LNHeaderAnimator+Analysis.m */; };
@@ -107,6 +108,8 @@
 		AF1C6BBF1F5D2AD7008C4DD5 /* LNHeaderDIYAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderDIYAnimator.m; sourceTree = "<group>"; };
 		AF1C6BC01F5D2AD7008C4DD5 /* YLoadingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLoadingPanel.h; sourceTree = "<group>"; };
 		AF1C6BC11F5D2AD7008C4DD5 /* YLoadingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLoadingPanel.m; sourceTree = "<group>"; };
+		AF1C6BC51F5E433C008C4DD5 /* LNHeaderELEAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderELEAnimator.h; sourceTree = "<group>"; };
+		AF1C6BC61F5E433C008C4DD5 /* LNHeaderELEAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderELEAnimator.m; sourceTree = "<group>"; };
 		AF1F98FE1F1CAA660074E638 /* DemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC.h; sourceTree = "<group>"; };
 		AF1F98FF1F1CAA660074E638 /* DemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC.m; sourceTree = "<group>"; };
 		AF1F991C1F2077D80074E638 /* LNHeaderAnimator+Analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LNHeaderAnimator+Analysis.h"; sourceTree = "<group>"; };
@@ -249,6 +252,15 @@
 			path = LNHeaderDIYAnimator;
 			sourceTree = "<group>";
 		};
+		AF1C6BC41F5E4331008C4DD5 /* LNHeaderELEAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				AF1C6BC51F5E433C008C4DD5 /* LNHeaderELEAnimator.h */,
+				AF1C6BC61F5E433C008C4DD5 /* LNHeaderELEAnimator.m */,
+			);
+			path = LNHeaderELEAnimator;
+			sourceTree = "<group>";
+		};
 		AF1F991B1F2077D80074E638 /* LNRefreshAnalysis */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +373,7 @@
 		AFC94B711F14CB5700D635BC /* LNRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AF1C6BC41F5E4331008C4DD5 /* LNHeaderELEAnimator */,
 				AF1C6BBD1F5D2AD7008C4DD5 /* LNHeaderDIYAnimator */,
 				AF334A141F596621004B1A1F /* LNHeaderFeizhuAnimator */,
 				AF3349FF1F56FC88004B1A1F /* LNHeaderToutiaoAnimator */,
@@ -487,7 +500,7 @@
 		AF29B56F1F0C900300348F99 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = vvusu;
 				TargetAttributes = {
 					AF29B5771F0C900300348F99 = {
@@ -608,6 +621,7 @@
 				AF334A021F56FC9C004B1A1F /* LNHeaderToutiaoAnimator.m in Sources */,
 				AF1F991E1F2077D80074E638 /* LNHeaderAnimator+Analysis.m in Sources */,
 				AF15ECCF1F4FBD5A0010973D /* LNHeaderTaobaoAnimator.m in Sources */,
+				AF1C6BC71F5E433C008C4DD5 /* LNHeaderELEAnimator.m in Sources */,
 				AFB97EFA1F53FC3B00D6629F /* LNHeaderNetEaseNewsAnimator.m in Sources */,
 				AF15ECBB1F4FBC6B0010973D /* LNHeaderTmallAnimator.m in Sources */,
 				AFB97EF31F53C12100D6629F /* LNHeaderMeituanAnimator.m in Sources */,
@@ -678,7 +692,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -686,7 +702,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -731,7 +751,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -739,7 +761,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

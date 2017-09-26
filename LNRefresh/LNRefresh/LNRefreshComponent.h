@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^LNRefreshComponentBlock)();
+typedef void (^LNRefreshComponentBlock)(void);
 
 @class LNRefreshAnimator;
 @interface LNRefreshComponent : UIView

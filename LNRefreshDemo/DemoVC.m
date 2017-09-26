@@ -17,10 +17,13 @@
 #import "LNHeaderNetEaseNewsAnimator.h"
 #import "LNHeaderToutiaoAnimator.h"
 #import "LNHeaderFeizhuAnimator.h"
+#import "LNHeaderELEAnimator.h"
 
 #define LNViewW self.view.frame.size.width
 #define LNViewH self.view.frame.size.height - 64
 #define LNViewBGColor [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.00]
+#define KIS_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define LNViewY KIS_iPhoneX ? 88 : 64
 
 @interface DemoVC ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UIWebViewDelegate>
 @property (strong, nonatomic) UIWebView *webView;
@@ -155,7 +158,7 @@ static NSUInteger num = 0;
 #pragma mark - UITableView datasource and delegate
 
 - (void)createTableView {
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, LNViewW, LNViewH) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH) style:UITableViewStylePlain];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableVCCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -245,6 +248,12 @@ static NSUInteger num = 0;
                 }];
             }
                 break;
+            case LNDemoDIYType_ELE: {
+                [self.tableView addPullToRefresh:[LNHeaderELEAnimator createAnimator] block:^{
+                    [wself pullToRefresh];
+                }];
+            }
+                break;
         }
     }
     [self.tableView startRefreshing];
@@ -284,7 +293,7 @@ static NSUInteger num = 0;
     layout.minimumLineSpacing = 20.0;
     layout.minimumInteritemSpacing = 10.0;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, LNViewW, LNViewH) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH) collectionViewLayout:layout];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CollectionCellID"];
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     self.collectionView.contentInset = UIEdgeInsetsMake(10, 10, 60, 10);
@@ -294,15 +303,14 @@ static NSUInteger num = 0;
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.collectionView];
-    
     __weak typeof(self) wself = self;
+    [self.collectionView addInfiniteScrolling:^{
+        [wself loadMoreRefresh];
+    }];
     // 默认刷新动画
     if (!self.isDIY) {
         [self.collectionView addPullToRefresh:^{
             [wself pullToRefresh];
-        }];
-        [self.collectionView addInfiniteScrolling:^{
-            [wself loadMoreRefresh];
         }];
         if (self.isGIF) {
             NSMutableArray *idleImages = [NSMutableArray array];
@@ -348,7 +356,7 @@ static NSUInteger num = 0;
 
 #pragma mark - UIWebView
 - (void)createWebView {
-    self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 64, LNViewW, LNViewH)];
+    self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH)];
     self.webView.backgroundColor = LNViewBGColor;
     self.webView.opaque = NO;
     self.webView.delegate = self;
@@ -373,7 +381,7 @@ static NSUInteger num = 0;
 
 #pragma mark - UITextView
 - (void)createTextView {
-    self.textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 64, LNViewW, LNViewH)];
+    self.textView = [[UITextView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH)];
     self.textView.alwaysBounceVertical = YES;
     self.textView.editable = NO;
     [self.view addSubview:self.textView];

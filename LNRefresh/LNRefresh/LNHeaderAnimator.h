@@ -28,7 +28,6 @@ typedef NS_ENUM(NSInteger, LNRefreshHeaderType) {
 
 - (void)setupHeaderView_DIY;
 - (void)layoutHeaderView_DIY;
-- (void)refreshHeaderView_DIY:(LNRefreshComponent *)view state:(LNRefreshState)state;
 - (void)refreshView_DIY:(LNRefreshComponent *)view progress:(CGFloat)progress;
-
+- (void)refreshHeaderView_DIY:(LNRefreshComponent *)view state:(LNRefreshState)state;
 @end
