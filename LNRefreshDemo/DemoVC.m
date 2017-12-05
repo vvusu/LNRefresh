@@ -106,12 +106,12 @@
 - (void)pullToRefresh {
     NSLog(@"下拉刷新");
     [self.dataArr removeAllObjects];
-    for (NSInteger i = 0; i < 10; i++) {
+    for (NSInteger i = 0; i < 16; i++) {
         [self.dataArr addObject:[self randomUnicodeString]];
     }
     __weak UITableView *wtableView = self.tableView;
     __weak UICollectionView *wcollectionView = self.collectionView;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         num = 0;
         if (self.vcType == LNDemoVCType_TableView) {
             [wtableView reloadData];
@@ -132,7 +132,7 @@ static NSUInteger num = 0;
     }
     __weak UITableView *wtableView = self.tableView;
     __weak UICollectionView *wcollectionView = self.collectionView;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (num > 2) {
             if (self.vcType == LNDemoVCType_TableView) {
                 [wtableView noticeNoMoreData];
@@ -168,6 +168,7 @@ static NSUInteger num = 0;
     [self.tableView addInfiniteScrolling:^{
         [wself loadMoreRefresh];
     }];
+    self.tableView.ln_footer.autoBack = YES;
     // 默认刷新动画
     if (!self.isDIY) {
         [self.tableView addPullToRefresh:^{
