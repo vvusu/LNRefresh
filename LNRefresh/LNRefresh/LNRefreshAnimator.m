@@ -48,10 +48,14 @@
 }
 
 - (void)setupSubViews {
-    for (UIView *view in self.animatorView.subviews) {
-        [view removeFromSuperview];
-    }
-    [[self.animatorView.layer.sublayers copy] makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.animatorView) {
+            for (UIView *view in self.animatorView.subviews) {
+                [view removeFromSuperview];
+            }
+            [[self.animatorView.layer.sublayers copy] makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+        }
+    });
 }
 
 - (void)layoutSubviews {}

@@ -140,22 +140,24 @@
 
 - (void)setupSubViews {
     [super setupSubViews];
-    if (!self.ignoreGlobSetting) {
-        [self setupHeaderAnimator];
-    }
-    [self.animatorView addSubview:self.bgImageView];
-    switch (self.headerType) {
-        case LNRefreshHeaderType_NOR:
-            [self setupSubViews_NOR];
-            break;
-        case LNRefreshHeaderType_GIF:
-            [self setupSubViews_GIF];
-            break;
-        case LNRefreshHeaderType_DIY:
-            [self setupHeaderView_DIY];
-            break;
-    }
-    [self layoutSubviews];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (!self.ignoreGlobSetting) {
+            [self setupHeaderAnimator];
+        }
+        [self.animatorView addSubview:self.bgImageView];
+        switch (self.headerType) {
+            case LNRefreshHeaderType_NOR:
+                [self setupSubViews_NOR];
+                break;
+            case LNRefreshHeaderType_GIF:
+                [self setupSubViews_GIF];
+                break;
+            case LNRefreshHeaderType_DIY:
+                [self setupHeaderView_DIY];
+                break;
+        }
+        [self layoutSubviews];
+    });
 }
 
 - (void)layoutSubviews {
