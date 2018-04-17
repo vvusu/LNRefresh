@@ -3,7 +3,7 @@
 
 #!/bin/sh
 
-UNIVERSAL_OUTPUTFOLDER=../build/
+UNIVERSAL_OUTPUTFOLDER=../Build/
 
 # 创建输出目录，并删除之前的framework文件
 mkdir -p "${UNIVERSAL_OUTPUTFOLDER}"
