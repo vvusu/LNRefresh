@@ -43,8 +43,10 @@
 }
 
 - (void)updateAnimationView:(CGFloat)num {
-    self.animatorView.ln_y -= num;
-    self.animatorView.ln_h = self.incremental;
+    CGRect frame = self.animatorView.frame;
+    frame.origin.y -= num;
+    frame.size.height = self.incremental;
+    self.animatorView.frame = frame;
 }
 
 - (void)setupSubViews {

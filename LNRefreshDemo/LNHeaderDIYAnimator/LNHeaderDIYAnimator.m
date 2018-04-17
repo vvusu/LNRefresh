@@ -21,7 +21,7 @@
     return diyAnimator;
 }
 
--(YLoadingPanel *)loadingPanel {
+- (YLoadingPanel *)loadingPanel {
     if (!_loadingPanel) {
         _loadingPanel = [[YLoadingPanel alloc]init];
         _loadingPanel.backgroundColor = [UIColor clearColor];
