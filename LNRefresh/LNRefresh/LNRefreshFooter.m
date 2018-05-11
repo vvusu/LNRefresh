@@ -54,6 +54,7 @@
     if (self.frame.origin.y != targetY) {
         self.ln_y = targetY;
     }
+    [self.animator layoutSubviews];
 }
 
 - (void)contentOffsetChangeAction:(NSDictionary *)change {
