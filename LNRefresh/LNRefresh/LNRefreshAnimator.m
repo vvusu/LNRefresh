@@ -55,7 +55,11 @@
             for (UIView *view in self.animatorView.subviews) {
                 [view removeFromSuperview];
             }
-            [self.animatorView.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+            if (self.animatorView.layer.sublayers) {
+                for (CALayer *layer in self.animatorView.layer.sublayers) {
+                    [layer removeFromSuperlayer];
+                }
+            }
         }
     });
 }
