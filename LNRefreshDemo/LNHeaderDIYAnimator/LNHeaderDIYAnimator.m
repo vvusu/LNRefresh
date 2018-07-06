@@ -32,13 +32,17 @@
 }
 
 - (void)setupHeaderView_DIY {
-    [self.animatorView addSubview:self.loadingPanel];
+    if (self.animatorView) {
+        [self.animatorView addSubview:self.loadingPanel];
+    }
 }
 
 - (void)layoutHeaderView_DIY {
-    CGRect panelFrame = self.loadingPanel.frame;
-    panelFrame.origin.y =  CGRectGetHeight(self.animatorView.bounds)/2.0f - CGRectGetHeight(self.loadingPanel.bounds) + 10;
-    self.loadingPanel.frame = panelFrame;
+    if (self.animatorView) {
+        CGRect panelFrame = self.loadingPanel.frame;
+        panelFrame.origin.y =  CGRectGetHeight(self.animatorView.bounds)/2.0f - CGRectGetHeight(self.loadingPanel.bounds) + 10;
+        self.loadingPanel.frame = panelFrame;        
+    }
 }
 
 - (void)refreshHeaderView_DIY:(LNRefreshComponent *)view state:(LNRefreshState)state {

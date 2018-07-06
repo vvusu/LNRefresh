@@ -90,7 +90,7 @@
     [LNRefreshHandler setAllHeaderAnimatorStateImages:idleImages state:LNRefreshState_Refreshing];
     if (!self.changeBtn.selected) {
         [LNRefreshHandler changeAllHeaderAnimatorType:LNRefreshHeaderType_DIY
-                                              bgImage:[UIImage imageNamed:@"refresh_bgimage_1.jpg"] incremental:100];
+                                              bgImage:[UIImage imageNamed:@"refresh_bgimage_1.jpg"] incremental:50];
     } else {
         [LNRefreshHandler changeAllHeaderAnimatorType:LNRefreshHeaderType_GIF bgImage:nil incremental:50];
     }
