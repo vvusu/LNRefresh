@@ -36,7 +36,7 @@
         if (self.animatorView) {
             [self.animatorView addSubview:self.loadingPanel];
         }
-    )};
+    });
 }
 
 - (void)layoutHeaderView_DIY {
