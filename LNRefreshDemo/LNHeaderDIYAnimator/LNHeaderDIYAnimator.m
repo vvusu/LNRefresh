@@ -32,9 +32,11 @@
 }
 
 - (void)setupHeaderView_DIY {
-    if (self.animatorView) {
-        [self.animatorView addSubview:self.loadingPanel];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.animatorView) {
+            [self.animatorView addSubview:self.loadingPanel];
+        }
+    )};
 }
 
 - (void)layoutHeaderView_DIY {
