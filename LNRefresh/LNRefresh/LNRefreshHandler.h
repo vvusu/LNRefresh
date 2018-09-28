@@ -18,9 +18,11 @@
 @property (nonatomic, assign) LNRefreshHeaderType headerType;
 
 + (LNRefreshHandler *)defaultHandler;
+
 + (NSString *)localizedStringForKey:(NSString *)key;
 
 + (void)changeAllHeaderAnimatorType:(LNRefreshHeaderType)type;
+
 + (void)changeAllHeaderAnimatorType:(LNRefreshHeaderType)type
                             bgImage:(UIImage *)image;
 
@@ -30,6 +32,7 @@
 
 + (void)setAllHeaderAnimatorStateImages:(NSArray *)stateImages
                                   state:(LNRefreshState)state;
+
 + (void)setAllHeaderAnimatorStateImages:(NSArray *)stateImages
                                   state:(LNRefreshState)state
                                duration:(NSTimeInterval)duration;

@@ -1,0 +1,78 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/vvusu/Library/Developer/Xcode/DerivedData/LNRefresh-asknseohxfgyswffqlqjcplkkhqc/Build/Products/Debug-iphonesimulator/LNRefresh.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "LNFooterAnimator.h",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNFooterAnimator.h"
+        },
+        {
+          'type': 'file',
+          'name': "LNHeaderAnimator.h",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNHeaderAnimator.h"
+        },
+        {
+          'type': 'file',
+          'name': "LNRefresh-Swift.h",
+          'external-contents': "/Users/vvusu/Library/Developer/Xcode/DerivedData/LNRefresh-asknseohxfgyswffqlqjcplkkhqc/Build/Products/Debug-iphonesimulator/LNRefresh.framework/Headers/LNRefresh-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "LNRefresh.h",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh.h"
+        },
+        {
+          'type': 'file',
+          'name': "LNRefreshAnimator.h",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNRefreshAnimator.h"
+        },
+        {
+          'type': 'file',
+          'name': "LNRefreshComponent.h",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNRefreshComponent.h"
+        },
+        {
+          'type': 'file',
+          'name': "LNRefreshConst.h",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNRefreshConst.h"
+        },
+        {
+          'type': 'file',
+          'name': "LNRefreshFooter.h",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNRefreshFooter.h"
+        },
+        {
+          'type': 'file',
+          'name': "LNRefreshHandler.h",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNRefreshHandler.h"
+        },
+        {
+          'type': 'file',
+          'name': "LNRefreshHeader.h",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/LNRefreshHeader.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+LNRefresh.h",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/LNRefresh/LNRefresh/NSObject+LNRefresh.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/vvusu/Library/Developer/Xcode/DerivedData/LNRefresh-asknseohxfgyswffqlqjcplkkhqc/Build/Products/Debug-iphonesimulator/LNRefresh.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/vvusu/Downloads/LNRefresh/build/LNRefresh.build/Debug-iphonesimulator/LNRefresh.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

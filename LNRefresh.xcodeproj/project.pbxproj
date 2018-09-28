@@ -244,10 +244,10 @@
 		AF1C6BBD1F5D2AD7008C4DD5 /* LNHeaderDIYAnimator */ = {
 			isa = PBXGroup;
 			children = (
-				AF1C6BBE1F5D2AD7008C4DD5 /* LNHeaderDIYAnimator.h */,
-				AF1C6BBF1F5D2AD7008C4DD5 /* LNHeaderDIYAnimator.m */,
 				AF1C6BC01F5D2AD7008C4DD5 /* YLoadingPanel.h */,
 				AF1C6BC11F5D2AD7008C4DD5 /* YLoadingPanel.m */,
+				AF1C6BBE1F5D2AD7008C4DD5 /* LNHeaderDIYAnimator.h */,
+				AF1C6BBF1F5D2AD7008C4DD5 /* LNHeaderDIYAnimator.m */,
 			);
 			path = LNHeaderDIYAnimator;
 			sourceTree = "<group>";
@@ -337,19 +337,11 @@
 		AF334A141F596621004B1A1F /* LNHeaderFeizhuAnimator */ = {
 			isa = PBXGroup;
 			children = (
-				AF334A181F5973FB004B1A1F /* Feizhu */,
+				AF334A191F5973FB004B1A1F /* feizhu_pull_refresh.gif */,
 				AF334A151F59662E004B1A1F /* LNHeaderFeizhuAnimator.h */,
 				AF334A161F59662E004B1A1F /* LNHeaderFeizhuAnimator.m */,
 			);
 			path = LNHeaderFeizhuAnimator;
-			sourceTree = "<group>";
-		};
-		AF334A181F5973FB004B1A1F /* Feizhu */ = {
-			isa = PBXGroup;
-			children = (
-				AF334A191F5973FB004B1A1F /* feizhu_pull_refresh.gif */,
-			);
-			path = Feizhu;
 			sourceTree = "<group>";
 		};
 		AFB97EEF1F53C10400D6629F /* LNHeaderMeituanAnimator */ = {

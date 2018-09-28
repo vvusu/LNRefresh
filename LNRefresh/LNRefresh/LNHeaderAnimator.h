@@ -22,12 +22,19 @@ typedef NS_ENUM(NSInteger, LNRefreshHeaderType) {
 @property (nonatomic, assign) LNRefreshHeaderType headerType;
 
 - (void)gifViewReStartAnimation;
+
 - (void)changeHeaderType:(LNRefreshHeaderType)type;
+
 - (void)setImages:(NSArray *)images forState:(LNRefreshState)state;
+
 - (void)setImages:(NSArray *)images duration:(NSTimeInterval)duration forState:(LNRefreshState)state;
 
 - (void)setupHeaderView_DIY;
+
 - (void)layoutHeaderView_DIY;
+
 - (void)refreshView_DIY:(LNRefreshComponent *)view progress:(CGFloat)progress;
+
 - (void)refreshHeaderView_DIY:(LNRefreshComponent *)view state:(LNRefreshState)state;
+
 @end

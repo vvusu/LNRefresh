@@ -20,10 +20,10 @@
 #import "LNHeaderELEAnimator.h"
 
 #define LNViewW self.view.frame.size.width
-#define LNViewH self.view.frame.size.height - 64
 #define LNViewBGColor [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.00]
-#define KIS_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define KIS_iPhoneX (CGSizeEqualToSize(CGSizeMake(375.f, 812.f), [UIScreen mainScreen].bounds.size) || CGSizeEqualToSize(CGSizeMake(414, 896), [UIScreen mainScreen].bounds.size))
 #define LNViewY KIS_iPhoneX ? 88 : 64
+#define LNViewH self.view.frame.size.height - (KIS_iPhoneX ? 88 : 64)
 
 @interface DemoVC ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UIWebViewDelegate>
 @property (strong, nonatomic) UIWebView *webView;
@@ -355,6 +355,7 @@ static NSUInteger num = 0;
 }
 
 #pragma mark - UIWebView
+
 - (void)createWebView {
     self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH)];
     self.webView.backgroundColor = LNViewBGColor;
@@ -380,6 +381,7 @@ static NSUInteger num = 0;
 }
 
 #pragma mark - UITextView
+
 - (void)createTextView {
     self.textView = [[UITextView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH)];
     self.textView.alwaysBounceVertical = YES;

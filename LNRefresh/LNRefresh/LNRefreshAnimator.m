@@ -53,14 +53,16 @@
 
 - (void)setupSubViews {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.animatorView) {
-            NSArray *views = [self.animatorView.subviews copy];
-            for (UIView *view in views) {
-                [view removeFromSuperview];
-            }
-            NSArray *layers = [self.animatorView.layer.sublayers copy];
-            for (CALayer *layer in layers) {
-                [layer removeFromSuperlayer];
+        @synchronized(self) {
+            if (self.animatorView) {
+                NSArray *views = [self.animatorView.subviews copy];
+                for (UIView *view in views) {
+                    [view removeFromSuperview];
+                }
+                NSArray *layers = [self.animatorView.layer.sublayers copy];
+                for (CALayer *layer in layers) {
+                    [layer removeFromSuperlayer];
+                }
             }
         }
     });

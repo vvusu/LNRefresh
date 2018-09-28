@@ -15,8 +15,10 @@
 @property (nonatomic, assign) NSTimeInterval startData; //开始刷新时间
 
 + (instancetype)initWithFrame:(CGRect)frame;
+
 + (instancetype)initWithFrame:(CGRect)frame
                         block:(LNRefreshComponentBlock)block;
+
 + (instancetype)initWithFrame:(CGRect)frame
                      animator:(LNHeaderAnimator *)animator
                         block:(LNRefreshComponentBlock)block;
