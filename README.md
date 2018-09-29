@@ -13,7 +13,7 @@
 <a href="http://cocoadocs.org/docsets/LNRefresh"><img src="https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat"></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
 <a href="https://developer.apple.com/ios"><img src="https://img.shields.io/badge/platform-iOS%207%2B-blue.svg?style=flat"></a>
-<a href="https://github.com/wedxz/LNRefresh/tree/1.0.3"><img src="https://img.shields.io/badge/release-1.0.3-blue.svg"></a>
+<a href="https://github.com/wedxz/LNRefresh/tree/1.0.4"><img src="https://img.shields.io/badge/release-1.0.4-blue.svg"></a>
 <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg"></a>
 </p>
 
