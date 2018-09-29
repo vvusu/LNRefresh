@@ -162,7 +162,6 @@
 		AFEDEA121F220315003EBEA8 /* LNRefreshHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNRefreshHandler.h; sourceTree = "<group>"; };
 		AFEDEA131F220315003EBEA8 /* LNRefreshHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRefreshHandler.m; sourceTree = "<group>"; };
 		AFFF4C781F219EBA009B4736 /* LNRefresh-Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LNRefresh-Resources.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFFF4C7A1F219EBA009B4736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFFF4C7E1F219EEF009B4736 /* refresh_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_arrow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -404,7 +403,6 @@
 		AFFF4C791F219EBA009B4736 /* LNRefresh-Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AFFF4C7A1F219EBA009B4736 /* Info.plist */,
 				AFA03C571F272DAA00896ED8 /* lnrefresh.json */,
 				AFFF4C7E1F219EEF009B4736 /* refresh_arrow.png */,
 			);
@@ -898,7 +896,7 @@
 				COMBINE_HIDPI_IMAGES = NO;
 				CONFIGURATION_BUILD_DIR = ../Build;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "LNRefresh-Resources/Info.plist";
+				INFOPLIST_FILE = "";
 				INSTALL_PATH = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -918,7 +916,7 @@
 				COMBINE_HIDPI_IMAGES = NO;
 				CONFIGURATION_BUILD_DIR = ../Build;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "LNRefresh-Resources/Info.plist";
+				INFOPLIST_FILE = "";
 				INSTALL_PATH = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;

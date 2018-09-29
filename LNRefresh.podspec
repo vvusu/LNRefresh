@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LNRefresh"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "LNRefresh component"
 
   # This description is used to generate tags and improve search results.
@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "LNRefresh/LNRefresh/*.{h,m}"
-  s.exclude_files = "LNRefresh/Exclude"
+  s.exclude_files = "LNRefresh/*.plist"
 
   # s.public_header_files = "Classes/**/*.h"
 
