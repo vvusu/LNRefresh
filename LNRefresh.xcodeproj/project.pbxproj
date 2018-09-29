@@ -15,6 +15,7 @@
 			);
 			dependencies = (
 				AFEDEA011F21AF65003EBEA8 /* PBXTargetDependency */,
+				AF735D4B215F21290043FA7C /* PBXTargetDependency */,
 			);
 			name = "LNRefresh-Universal";
 			productName = "LNRefresh-Universal";
@@ -73,19 +74,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AF735D4A215F21290043FA7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF29B56F1F0C900300348F99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFFF4C771F219EBA009B4736;
+			remoteInfo = "LNRefresh-Resources";
+		};
 		AFEDEA001F21AF65003EBEA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AF29B56F1F0C900300348F99 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AF29B5771F0C900300348F99;
 			remoteInfo = LNRefresh;
-		};
-		AFEDEA021F21B08C003EBEA8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF29B56F1F0C900300348F99 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AFFF4C771F219EBA009B4736;
-			remoteInfo = "LNRefresh-Resources";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -160,7 +161,7 @@
 		AFC94BBE1F1720B300D635BC /* LNFooterAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNFooterAnimator.m; sourceTree = "<group>"; };
 		AFEDEA121F220315003EBEA8 /* LNRefreshHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNRefreshHandler.h; sourceTree = "<group>"; };
 		AFEDEA131F220315003EBEA8 /* LNRefreshHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRefreshHandler.m; sourceTree = "<group>"; };
-		AFFF4C781F219EBA009B4736 /* LNRefresh.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LNRefresh.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFFF4C781F219EBA009B4736 /* LNRefresh-Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LNRefresh-Resources.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFFF4C7A1F219EBA009B4736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFFF4C7E1F219EEF009B4736 /* refresh_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_arrow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -285,7 +286,7 @@
 			children = (
 				AF29B5781F0C900300348F99 /* LNRefresh.framework */,
 				AFC94B701F14CB5600D635BC /* LNRefreshDemo.app */,
-				AFFF4C781F219EBA009B4736 /* LNRefresh.bundle */,
+				AFFF4C781F219EBA009B4736 /* LNRefresh-Resources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -445,7 +446,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				AFEDEA031F21B08C003EBEA8 /* PBXTargetDependency */,
 			);
 			name = LNRefresh;
 			productName = LNRefresh;
@@ -483,7 +483,7 @@
 			);
 			name = "LNRefresh-Resources";
 			productName = "LNRefresh-Resources";
-			productReference = AFFF4C781F219EBA009B4736 /* LNRefresh.bundle */;
+			productReference = AFFF4C781F219EBA009B4736 /* LNRefresh-Resources.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -547,13 +547,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF334A1A1F5973FB004B1A1F /* feizhu_pull_refresh.gif in Resources */,
 				AFC94B7D1F14CB5700D635BC /* Main.storyboard in Resources */,
+				AFC94B821F14CB5700D635BC /* LaunchScreen.storyboard in Resources */,
+				AFA03C621F27546500896ED8 /* LNRefresh.bundle in Resources */,
+				AF334A1A1F5973FB004B1A1F /* feizhu_pull_refresh.gif in Resources */,
 				AF15ECD61F4FC3D80010973D /* frontpage_refresh@3x.gif in Resources */,
 				AF15ECD51F4FC3D80010973D /* frontpage_refresh@2x.gif in Resources */,
-				AFA03C621F27546500896ED8 /* LNRefresh.bundle in Resources */,
 				AF15ECD71F4FC3D80010973D /* frontpage_refresh_release@2x.gif in Resources */,
-				AFC94B821F14CB5700D635BC /* LaunchScreen.storyboard in Resources */,
 				AF15ECD81F4FC3D80010973D /* frontpage_refresh_release@3x.gif in Resources */,
 				AFC94B7F1F14CB5700D635BC /* Assets.xcassets in Resources */,
 			);
@@ -637,15 +637,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AF735D4B215F21290043FA7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFFF4C771F219EBA009B4736 /* LNRefresh-Resources */;
+			targetProxy = AF735D4A215F21290043FA7C /* PBXContainerItemProxy */;
+		};
 		AFEDEA011F21AF65003EBEA8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AF29B5771F0C900300348F99 /* LNRefresh */;
 			targetProxy = AFEDEA001F21AF65003EBEA8 /* PBXContainerItemProxy */;
-		};
-		AFEDEA031F21B08C003EBEA8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AFFF4C771F219EBA009B4736 /* LNRefresh-Resources */;
-			targetProxy = AFEDEA021F21B08C003EBEA8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -896,14 +896,14 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = NO;
-				CONFIGURATION_BUILD_DIR = ../build;
+				CONFIGURATION_BUILD_DIR = ../Build;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "LNRefresh-Resources/Info.plist";
 				INSTALL_PATH = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vvusu.xcode.LNRefresh-Resources";
-				PRODUCT_NAME = LNRefresh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -916,14 +916,14 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = NO;
-				CONFIGURATION_BUILD_DIR = ../build;
+				CONFIGURATION_BUILD_DIR = ../Build;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "LNRefresh-Resources/Info.plist";
 				INSTALL_PATH = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vvusu.xcode.LNRefresh-Resources";
-				PRODUCT_NAME = LNRefresh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
