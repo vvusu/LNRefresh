@@ -16,17 +16,12 @@
     return [LNRefreshFooter initWithFrame:frame block:nil];
 }
 
-+ (instancetype)initWithFrame:(CGRect)frame
-                        block:(LNRefreshComponentBlock)block {
-    
++ (instancetype)initWithFrame:(CGRect)frame block:(LNRefreshComponentBlock)block {
     LNFooterAnimator *animator = [[LNFooterAnimator alloc]init];
     return [LNRefreshFooter initWithFrame:frame animator:animator block:block];
 }
 
-+ (instancetype)initWithFrame:(CGRect)frame
-                     animator:(LNFooterAnimator *)animator
-                        block:(LNRefreshComponentBlock)block {
-    
++ (instancetype)initWithFrame:(CGRect)frame animator:(LNFooterAnimator *)animator block:(LNRefreshComponentBlock)block {
     LNRefreshFooter *footer = [[LNRefreshFooter alloc]init];
     footer.animator = animator;
     footer.refreshBlock = block;

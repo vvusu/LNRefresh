@@ -157,7 +157,7 @@ static NSUInteger num = 0;
 #pragma mark - UITableView datasource and delegate
 
 - (void)createTableView {
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH) style:UITableViewStyleGrouped];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableVCCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -269,6 +269,27 @@ static NSUInteger num = 0;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 40;
+}
+
+// 重写，要不位置不正确
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc]init];
+    view.backgroundColor = [UIColor yellowColor];
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc]init];
+    view.backgroundColor = [UIColor yellowColor];
+    return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

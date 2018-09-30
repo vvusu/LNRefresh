@@ -406,10 +406,10 @@
 		AFF81BF4215F662B00723004 /* LNClasses */ = {
 			isa = PBXGroup;
 			children = (
-				AFF81BF5215F662B00723004 /* DemoVC.m */,
-				AFF81BF6215F662B00723004 /* HomeVC.m */,
 				AFF81BF7215F662B00723004 /* HomeVC.h */,
+				AFF81BF6215F662B00723004 /* HomeVC.m */,
 				AFF81BF8215F662B00723004 /* DemoVC.h */,
+				AFF81BF5215F662B00723004 /* DemoVC.m */,
 			);
 			path = LNClasses;
 			sourceTree = "<group>";
