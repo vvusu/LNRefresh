@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, LNRefreshState) {
 
 @class LNRefreshComponent;
 @interface LNRefreshAnimator : NSObject
+@property (nonatomic, strong) NSLock *lock;
 @property (nonatomic, assign) CGFloat trigger;          //下拉触发高度
 @property (nonatomic, weak) UIView *animatorView;       //执行动画View
 @property (nonatomic, assign) CGFloat incremental;      //动画View的高度

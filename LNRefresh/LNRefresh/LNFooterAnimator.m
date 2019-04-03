@@ -39,9 +39,11 @@
 - (void)setupSubViews {
     [super setupSubViews];
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self.lock lock];
         [self.animatorView addSubview:self.titleLabel];
         [self.animatorView addSubview:self.indicatorView];
         [self layoutSubviews];
+        [self.lock unlock];
     });
 }
 
