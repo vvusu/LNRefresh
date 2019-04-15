@@ -11,7 +11,6 @@
 @class LNHeaderAnimator;
 @interface LNRefreshHeader : LNRefreshComponent
 @property (nonatomic, assign) BOOL scrollViewBounces;   //ScrollView是否弹回
-@property (nonatomic, assign) CGFloat previousOffset;   //原始的偏移量
 @property (nonatomic, assign) NSTimeInterval startData; //开始刷新时间
 
 + (instancetype)initWithFrame:(CGRect)frame;

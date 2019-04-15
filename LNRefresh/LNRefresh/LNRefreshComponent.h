@@ -13,6 +13,7 @@ typedef void (^LNRefreshComponentBlock)(void);
 @class LNRefreshAnimator;
 @interface LNRefreshComponent : UIView
 @property (nonatomic, weak) UIScrollView *scrollView;                           //ScrollView
+@property (nonatomic, assign) CGFloat previousOffset;                           //原始的偏移量
 @property (nonatomic, assign) UIEdgeInsets scrollViewInsets;                    //原始scrollviewInsets
 @property (nonatomic, strong) LNRefreshAnimator *animator;                      //具体动画展现
 @property (nonatomic, copy) LNRefreshComponentBlock refreshBlock;               //刷新Block

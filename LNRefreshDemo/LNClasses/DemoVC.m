@@ -127,13 +127,13 @@
 static NSUInteger num = 0;
 - (void)loadMoreRefresh {
     NSLog(@"上拉加载更多");
-    for (NSInteger i = 0; i < 1; i++) {
+    for (NSInteger i = 0; i < 3; i++) {
         [self.dataArr addObject:[self randomUnicodeString]];
     }
     __weak UITableView *wtableView = self.tableView;
     __weak UICollectionView *wcollectionView = self.collectionView;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (num > 2) {
+        if (num > 3) {
             if (self.vcType == LNDemoVCType_TableView) {
                 [wtableView noticeNoMoreData];
             }
@@ -157,18 +157,37 @@ static NSUInteger num = 0;
 #pragma mark - UITableView datasource and delegate
 
 - (void)createTableView {
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, LNViewY, LNViewW, LNViewH) style:UITableViewStylePlain];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableVCCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = LNViewBGColor;
-    self.tableView.tableFooterView = [[UIView alloc]init];
+    
+//    if (@available(iOS 11.0, *)) {
+//        self.tableView.estimatedRowHeight = 0;
+//        self.tableView.estimatedSectionFooterHeight = 0;
+//        self.tableView.estimatedSectionHeaderHeight = 0;
+//        self.tableView.contentInsetAdjustmentBehavior= UIScrollViewContentInsetAdjustmentNever;
+//    }
+    UILabel *headerView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, LNViewW, 40)];
+    headerView.backgroundColor = [UIColor blueColor];
+    headerView.text = @"tableHeaderView";
+    headerView.textAlignment = NSTextAlignmentCenter;
+    self.tableView.tableHeaderView = headerView;
+    
+    UILabel *footView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, LNViewW, 40)];
+    footView.backgroundColor = [UIColor redColor];
+    footView.text = @"tableFooterView";
+    footView.textAlignment = NSTextAlignmentCenter;
+    self.tableView.tableFooterView = footView;
+    
+//    self.tableView.ln_footer.autoBack = YES;
+    
     [self.view addSubview:self.tableView];
     __weak typeof(self) wself = self;
     [self.tableView addInfiniteScrolling:^{
         [wself loadMoreRefresh];
     }];
-    self.tableView.ln_footer.autoBack = YES;
     // 默认刷新动画
     if (!self.isDIY) {
         [self.tableView addPullToRefresh:^{
@@ -268,28 +287,32 @@ static NSUInteger num = 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 40;
+    return 50;
 }
 
 // 重写，要不位置不正确
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.1;
+    return 35;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.1;
+    return 35;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc]init];
+    UILabel *view = [[UILabel alloc]init];
     view.backgroundColor = [UIColor yellowColor];
-    return nil;
+    view.textAlignment = NSTextAlignmentCenter;
+    view.text = @"HeaderInSection";
+    return view;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc]init];
-    view.backgroundColor = [UIColor yellowColor];
-    return nil;
+    UILabel *view = [[UILabel alloc]init];
+    view.backgroundColor = [UIColor greenColor];
+    view.textAlignment = NSTextAlignmentCenter;
+    view.text = @"FooterInSection";
+    return view;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

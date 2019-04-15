@@ -29,20 +29,6 @@
 }
 
 # pragma mark - Action
-
-- (void)setHidden:(BOOL)hidden {
-    [super setHidden:hidden];
-    if (hidden) {
-        self.scrollView.ln_insetB = self.scrollViewInsets.bottom;
-    } else {
-        if (self.isAutoBack) {
-            self.scrollView.ln_insetB = self.scrollViewInsets.bottom;
-        } else {
-            self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
-        }
-    }
-}
-
 - (void)contentSizeChangeAction:(NSDictionary *)change {
     [super contentSizeChangeAction:change];
     CGFloat targetY = self.scrollView.contentSize.height + self.scrollViewInsets.bottom;
@@ -52,48 +38,87 @@
     [self.animator layoutSubviews];
 }
 
+- (void)updateScrollViewInset
+{
+    if (!self.noMoreData) {
+        self.scrollView.ln_insetB = self.scrollViewInsets.bottom;
+    } else {
+        self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
+    }
+}
+
 - (void)contentOffsetChangeAction:(NSDictionary *)change {
     [super contentOffsetChangeAction:change];
-    if (self.isRefreshing || self.isNoNoreData || self.hidden) {
+    if (self.isRefreshing || self.hidden) {
         return;
     }
-    if (self.scrollView.contentSize.height + self.scrollView.contentInset.top > self.scrollView.bounds.size.height) {
-        if (self.scrollView.contentSize.height - self.scrollView.contentOffset.y + self.scrollView.contentInset.bottom <= self.scrollView.bounds.size.height) {
-            [self.animator refreshView:self state:LNRefreshState_Refreshing];
-            [self startRefreshing];
+    // 解决系统 UITableViewStylePlain 状态下 FooterInSection 偏移问题
+    CGFloat offsets = self.previousOffset - fabs(self.scrollView.contentSize.height - self.scrollView.frame.size.height);
+    CGFloat progress = offsets/self.animator.trigger;
+    if (self.isNoNoreData) {
+        if (progress > 0 && progress < 1) {
+            if (progress > 0.2) {
+                self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
+            } else {
+                self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental*progress;
+            }
+        } else if(progress < 0) {
+            self.scrollView.ln_insetB = self.scrollViewInsets.bottom;
         }
-    } else {
-        if (self.scrollView.contentOffset.y + self.scrollView.contentInset.top >= self.animator.trigger/2.0) {
-            [self.animator refreshView:self state:LNRefreshState_Refreshing];
-            [self startRefreshing];
+        self.previousOffset = self.scrollView.contentOffset.y;
+        return;
+    }
+    
+    if (offsets > 0) {
+        if (progress > 1) {
+            if (!self.scrollView.isDragging) {
+                [self startRefreshing];
+                [self.animator refreshView:self state:LNRefreshState_Refreshing];
+            } else {
+                [self.animator refreshView:self state:LNRefreshState_WillRefresh];
+            }
+        } else {
+            [self.animator refreshView:self state:LNRefreshState_PullToRefresh];
+        }
+        if (self.scrollView.isDragging) {
+            [self.animator refreshView:self progress:progress];
         }
     }
+    self.previousOffset = self.scrollView.contentOffset.y;
 }
 
 - (void)start {
     [super start];
     self.ignoreObserving = YES;
-    self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
     [self.animator refreshView:self state:LNRefreshState_Refreshing];
-    CGFloat y = MAX(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height + self.scrollView.ln_insetB);
-    [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
-        self.scrollView.contentOffset = CGPointMake(self.scrollView.contentOffset.x, y);
+    // 动画去掉可以解决上拉加载更多时候，HeaderInSection 偏移问题
+    [UIView animateWithDuration:0.25f animations:^{
+        self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
+        CGFloat contentOffsetY = (self.scrollView.contentSize.height + self.scrollView.ln_insetB) - self.scrollView.frame.size.height;
+        self.scrollView.contentOffset = CGPointMake(self.scrollView.contentOffset.x, contentOffsetY);
     } completion:^(BOOL finished) {
+        self.ignoreObserving = NO;
         if (self.refreshBlock) {
             self.refreshBlock();
         }
-        self.ignoreObserving = NO;
     }];
 }
 
 - (void)stop {
     [super stop];
-    if (self.noMoreData) {
-        self.alpha = 1;
-        [self.animator refreshView:self state:LNRefreshState_NoMoreData];
-    } else {
-        [self.animator refreshView:self state:LNRefreshState_Normal];
-    }
+    self.ignoreObserving = YES;
+    [UIView animateWithDuration:0.3f animations:^{
+        self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
+    } completion:^(BOOL finished) {
+        [self updateScrollViewInset];
+        self.previousOffset = self.scrollView.contentOffset.y;
+        if (!self.noMoreData) {
+            [self.animator refreshView:self state:LNRefreshState_Normal];
+        } else {
+            [self.animator refreshView:self state:LNRefreshState_NoMoreData];
+        }
+        self.ignoreObserving = NO;
+    }];
 }
 
 @end

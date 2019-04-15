@@ -62,10 +62,15 @@
     if (self.state == state) { return; }
     self.state = state;
     switch (state) {
-        case LNRefreshState_Normal: {
+        case LNRefreshState_Normal:
+        case LNRefreshState_PullToRefresh: {
             [self.indicatorView stopAnimating];
             self.indicatorView.hidden = YES;
             self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshLoadingMore];
+        }
+            break;
+        case LNRefreshState_WillRefresh: {
+            self.titleLabel.text = [LNRefreshHandler localizedStringForKey:LNRefreshReleaseToRefresh];
         }
             break;
         case LNRefreshState_Refreshing: {
@@ -83,6 +88,10 @@
             break;
     }
     [self layoutSubviews];
+}
+
+- (void)refreshView:(LNRefreshComponent *)view progress:(CGFloat)progress {
+    [super refreshView:view progress:progress];
 }
 
 @end

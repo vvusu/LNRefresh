@@ -313,15 +313,21 @@ static const char LNRefreshFooterKey = '\0';
 }
 
 - (void)resetNoMoreData {
-    self.ln_footer.noMoreData = NO;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.ln_footer.noMoreData = NO;
+        if (self.ln_footer.isRefreshing) {
+            [self.ln_footer stop];
+        }
+    });
     self.ln_footer.hidden = NO;
-    [self.ln_footer stop];
 }
 
 - (void)noticeNoMoreData {
-    self.ln_footer.noMoreData = YES;
-    self.ln_footer.hidden = NO;
-    [self.ln_footer stop];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.ln_footer.noMoreData = YES;
+        [self.ln_footer stop];
+        self.ln_footer.hidden = NO;
+    });
 }
 
 - (void)hideRefreshFooter {

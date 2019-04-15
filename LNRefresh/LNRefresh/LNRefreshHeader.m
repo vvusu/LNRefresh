@@ -63,8 +63,8 @@
     self.ignoreObserving = YES;
     self.scrollView.bounces = NO;
     self.startData = [NSDate timeIntervalSinceReferenceDate];
-    [self.animator refreshView:self state:LNRefreshState_Refreshing];
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self.animator refreshView:self state:LNRefreshState_Refreshing];
         [UIView animateWithDuration:0.25f animations:^{
             self.scrollView.ln_insetT = self.scrollViewInsets.top + self.animator.trigger;
             self.scrollView.contentOffset = CGPointMake(self.scrollView.contentOffset.x, -self.scrollView.ln_insetT);
