@@ -318,15 +318,26 @@ static const char LNRefreshFooterKey = '\0';
         if (self.ln_footer.isRefreshing) {
             [self.ln_footer stop];
         }
+        [self updateFooterView];
     });
-    self.ln_footer.hidden = NO;
 }
 
 - (void)noticeNoMoreData {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.ln_footer.noMoreData = YES;
         [self.ln_footer stop];
+        [self updateFooterView];
+    });
+}
+
+- (void)updateFooterView
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.ln_footer.hidden = NO;
+        self.ln_footer.frame = CGRectMake(self.contentOffset.x,
+                                          self.contentSize.height - self.contentInset.top,
+                                          self.bounds.size.width, self.ln_footer.animator.incremental);
+        
     });
 }
 
