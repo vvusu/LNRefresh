@@ -170,13 +170,13 @@ static NSUInteger num = 0;
 //        self.tableView.contentInsetAdjustmentBehavior= UIScrollViewContentInsetAdjustmentNever;
 //    }
     UILabel *headerView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, LNViewW, 40)];
-    headerView.backgroundColor = [UIColor blueColor];
+    headerView.backgroundColor = [UIColor redColor];
     headerView.text = @"tableHeaderView";
     headerView.textAlignment = NSTextAlignmentCenter;
     self.tableView.tableHeaderView = headerView;
     
     UILabel *footView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, LNViewW, 40)];
-    footView.backgroundColor = [UIColor redColor];
+    footView.backgroundColor = [UIColor grayColor];
     footView.text = @"tableFooterView";
     footView.textAlignment = NSTextAlignmentCenter;
     self.tableView.tableFooterView = footView;
@@ -301,7 +301,7 @@ static NSUInteger num = 0;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel *view = [[UILabel alloc]init];
-    view.backgroundColor = [UIColor yellowColor];
+    view.backgroundColor = [UIColor greenColor];
     view.textAlignment = NSTextAlignmentCenter;
     view.text = @"HeaderInSection";
     return view;
@@ -309,7 +309,7 @@ static NSUInteger num = 0;
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UILabel *view = [[UILabel alloc]init];
-    view.backgroundColor = [UIColor greenColor];
+    view.backgroundColor = [UIColor yellowColor];
     view.textAlignment = NSTextAlignmentCenter;
     view.text = @"FooterInSection";
     return view;
