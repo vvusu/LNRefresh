@@ -127,13 +127,13 @@
 static NSUInteger num = 0;
 - (void)loadMoreRefresh {
     NSLog(@"上拉加载更多");
-    for (NSInteger i = 0; i < 2; i++) {
+    for (NSInteger i = 0; i < 3; i++) {
         [self.dataArr addObject:[self randomUnicodeString]];
     }
     __weak UITableView *wtableView = self.tableView;
     __weak UICollectionView *wcollectionView = self.collectionView;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (num > 3) {
+        if (num > 2) {
             if (self.vcType == LNDemoVCType_TableView) {
                 [wtableView noticeNoMoreData];
             }
