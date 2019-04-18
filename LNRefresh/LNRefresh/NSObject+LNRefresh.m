@@ -315,9 +315,7 @@ static const char LNRefreshFooterKey = '\0';
 - (void)resetNoMoreData {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.ln_footer.noMoreData = NO;
-        if (self.ln_footer.isRefreshing) {
-            [self.ln_footer stop];
-        }
+        [self.ln_footer stop];
         [self updateFooterView];
     });
 }

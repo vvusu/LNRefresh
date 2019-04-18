@@ -49,12 +49,15 @@
 
 - (void)contentOffsetChangeAction:(NSDictionary *)change {
     [super contentOffsetChangeAction:change];
-    if (self.isRefreshing || self.hidden) {
+    if (self.isRefreshing || self.hidden || self.scrollView.contentOffset.y < 0) {
         return;
     }
     // 解决系统 UITableViewStylePlain 状态下 FooterInSection 偏移问题
-    CGFloat offsets = self.previousOffset - fabs(self.scrollView.contentSize.height - self.scrollView.frame.size.height);
-    CGFloat progress = offsets/self.animator.trigger;
+    CGFloat instenBottom = self.scrollView.contentSize.height - self.scrollView.frame.size.height;
+    CGFloat progress = (self.previousOffset - instenBottom)/self.animator.trigger;
+    if (instenBottom < 0) {
+        progress = self.previousOffset/self.animator.trigger;
+    }
     if (self.isNoNoreData) {
         if (progress > 0 && progress < 1) {
             if (progress > 0.2) {
@@ -68,9 +71,8 @@
         self.previousOffset = self.scrollView.contentOffset.y;
         return;
     }
-    
-    if (offsets > 0) {
-        if (progress > 1) {
+    if (progress > 0) {
+        if (progress >= 1) {
             if (!self.scrollView.isDragging) {
                 [self startRefreshing];
                 [self.animator refreshView:self state:LNRefreshState_Refreshing];
@@ -95,7 +97,9 @@
     [UIView animateWithDuration:0.25f animations:^{
         self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
         CGFloat contentOffsetY = (self.scrollView.contentSize.height + self.scrollView.ln_insetB) - self.scrollView.frame.size.height;
-        self.scrollView.contentOffset = CGPointMake(self.scrollView.contentOffset.x, contentOffsetY);
+        if (contentOffsetY >= 0) {
+            self.scrollView.contentOffset = CGPointMake(self.scrollView.contentOffset.x, contentOffsetY);
+        }
     } completion:^(BOOL finished) {
         self.ignoreObserving = NO;
         if (self.refreshBlock) {

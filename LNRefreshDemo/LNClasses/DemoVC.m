@@ -106,7 +106,7 @@
 - (void)pullToRefresh {
     NSLog(@"下拉刷新");
     [self.dataArr removeAllObjects];
-    for (NSInteger i = 0; i < 16; i++) {
+    for (NSInteger i = 0; i < 6; i++) {
         [self.dataArr addObject:[self randomUnicodeString]];
     }
     __weak UITableView *wtableView = self.tableView;
@@ -127,7 +127,7 @@
 static NSUInteger num = 0;
 - (void)loadMoreRefresh {
     NSLog(@"上拉加载更多");
-    for (NSInteger i = 0; i < 3; i++) {
+    for (NSInteger i = 0; i < 2; i++) {
         [self.dataArr addObject:[self randomUnicodeString]];
     }
     __weak UITableView *wtableView = self.tableView;

@@ -94,8 +94,8 @@
                 self.scrollView.ln_insetT = self.scrollViewInsets.top;
                 self.previousOffset = self.scrollView.contentOffset.y;
             } completion:^(BOOL finished) {
-                self.ignoreObserving = NO;
                 [self.animator refreshView:self state:LNRefreshState_Normal];
+                self.ignoreObserving = NO;
             }];
         });
     });
