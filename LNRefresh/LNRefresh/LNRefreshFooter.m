@@ -59,14 +59,16 @@
         progress = self.previousOffset/self.animator.trigger;
     }
     if (self.isNoNoreData) {
-        if (progress > 0 && progress < 1) {
-            if (progress > 0.2) {
-                self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
-            } else {
-                self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental*progress;
+        if (instenBottom > 0) {
+            if (progress > 0 && progress < 1) {
+                if (progress > 0.2) {
+                    self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
+                } else {
+                    self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental*progress;
+                }
+            } else if(progress < 0) {
+                self.scrollView.ln_insetB = self.scrollViewInsets.bottom;
             }
-        } else if(progress < 0) {
-            self.scrollView.ln_insetB = self.scrollViewInsets.bottom;
         }
         self.previousOffset = self.scrollView.contentOffset.y;
         return;
