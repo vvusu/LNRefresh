@@ -233,7 +233,7 @@ static const char LNRefreshFooterKey = '\0';
         [self removeRefreshFooter];
     }
     LNRefreshFooter *footer = [LNRefreshFooter initWithFrame:CGRectZero animator:animater block:block];
-    footer.frame = CGRectMake(self.contentOffset.x, self.contentSize.height - self.contentInset.top, self.bounds.size.width, footer.animator.incremental);
+    footer.frame = CGRectMake(self.contentOffset.x, self.contentSize.height, self.bounds.size.width, footer.animator.incremental);
     footer.animator.animatorView = footer;
     footer.hidden = YES;
     self.ln_footer = footer;
@@ -330,11 +330,12 @@ static const char LNRefreshFooterKey = '\0';
 
 - (void)updateFooterView
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.ln_footer.hidden = NO;
         self.ln_footer.frame = CGRectMake(self.contentOffset.x,
-                                          self.contentSize.height - self.contentInset.top,
-                                          self.bounds.size.width, self.ln_footer.animator.incremental);
+                                          self.contentSize.height,
+                                          self.bounds.size.width,
+                                          self.ln_footer.animator.incremental);
         
     });
 }

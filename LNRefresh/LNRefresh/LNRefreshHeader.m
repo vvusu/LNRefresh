@@ -19,7 +19,9 @@
 
 + (instancetype)initWithFrame:(CGRect)frame
                         block:(LNRefreshComponentBlock)block {
-    return [LNRefreshHeader initWithFrame:frame animator:[[LNHeaderAnimator alloc]init] block:block];
+    return [LNRefreshHeader initWithFrame:frame
+                                 animator:[[LNHeaderAnimator alloc]init]
+                                    block:block];
 }
 
 + (instancetype)initWithFrame:(CGRect)frame

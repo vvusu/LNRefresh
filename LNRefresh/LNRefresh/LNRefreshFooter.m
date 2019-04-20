@@ -31,7 +31,7 @@
 # pragma mark - Action
 - (void)contentSizeChangeAction:(NSDictionary *)change {
     [super contentSizeChangeAction:change];
-    CGFloat targetY = self.scrollView.contentSize.height + self.scrollViewInsets.bottom;
+    CGFloat targetY = self.scrollView.contentSize.height;
     if (self.frame.origin.y != targetY) {
         self.ln_y = targetY;
     }
@@ -49,7 +49,8 @@
 
 - (void)contentOffsetChangeAction:(NSDictionary *)change {
     [super contentOffsetChangeAction:change];
-    if (self.isRefreshing || self.hidden || self.scrollView.contentOffset.y < 0) {
+    CGFloat previousOffset = self.scrollView.contentOffset.y+self.scrollView.contentInset.top;
+    if (self.isRefreshing || self.hidden || previousOffset < 0) {
         return;
     }
     // 解决系统 UITableViewStylePlain 状态下 FooterInSection 偏移问题
@@ -66,7 +67,7 @@
                 self.scrollView.ln_insetB = self.scrollViewInsets.bottom;
             }
         }
-        self.previousOffset = self.scrollView.contentOffset.y;
+        self.previousOffset = self.scrollView.contentOffset.y+self.scrollView.contentInset.top;
         return;
     }
     if (progress > 0) {
@@ -84,7 +85,7 @@
             [self.animator refreshView:self progress:progress];
         }
     }
-    self.previousOffset = self.scrollView.contentOffset.y;
+    self.previousOffset = self.scrollView.contentOffset.y+self.scrollView.contentInset.top;
 }
 
 - (void)start {
