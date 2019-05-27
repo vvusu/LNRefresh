@@ -16,12 +16,15 @@
     return [LNRefreshFooter initWithFrame:frame block:nil];
 }
 
-+ (instancetype)initWithFrame:(CGRect)frame block:(LNRefreshComponentBlock)block {
++ (instancetype)initWithFrame:(CGRect)frame
+                        block:(LNRefreshComponentBlock)block {
     LNFooterAnimator *animator = [[LNFooterAnimator alloc]init];
     return [LNRefreshFooter initWithFrame:frame animator:animator block:block];
 }
 
-+ (instancetype)initWithFrame:(CGRect)frame animator:(LNFooterAnimator *)animator block:(LNRefreshComponentBlock)block {
++ (instancetype)initWithFrame:(CGRect)frame
+                     animator:(LNFooterAnimator *)animator
+                        block:(LNRefreshComponentBlock)block {
     LNRefreshFooter *footer = [[LNRefreshFooter alloc]init];
     footer.animator = animator;
     footer.refreshBlock = block;
@@ -70,7 +73,10 @@
         self.previousOffset = self.scrollView.contentOffset.y+self.scrollView.contentInset.top;
         return;
     }
-    if (progress > 0) {
+    if (progress >= 0) {
+        if (self.isAutoRefresh) {
+            progress = 1;
+        }
         if (progress >= 1) {
             if (!self.scrollView.isDragging) {
                 [self startRefreshing];
@@ -81,7 +87,7 @@
         } else {
             [self.animator refreshView:self state:LNRefreshState_PullToRefresh];
         }
-        if (self.scrollView.isDragging) {
+        if (self.isAutoRefresh || self.scrollView.isDragging) {
             [self.animator refreshView:self progress:progress];
         }
     }

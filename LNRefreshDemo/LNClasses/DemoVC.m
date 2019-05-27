@@ -127,7 +127,7 @@
 static NSUInteger num = 0;
 - (void)loadMoreRefresh {
     NSLog(@"上拉加载更多");
-    for (NSInteger i = 0; i < 3; i++) {
+    for (NSInteger i = 0; i < 6; i++) {
         [self.dataArr addObject:[self randomUnicodeString]];
     }
     __weak UITableView *wtableView = self.tableView;
@@ -163,12 +163,12 @@ static NSUInteger num = 0;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = LNViewBGColor;
     
-//    if (@available(iOS 11.0, *)) {
-//        self.tableView.estimatedRowHeight = 0;
-//        self.tableView.estimatedSectionFooterHeight = 0;
-//        self.tableView.estimatedSectionHeaderHeight = 0;
-//        self.tableView.contentInsetAdjustmentBehavior= UIScrollViewContentInsetAdjustmentNever;
-//    }
+    if (@available(iOS 11.0, *)) {
+        self.tableView.estimatedRowHeight = 0;
+        self.tableView.estimatedSectionFooterHeight = 0;
+        self.tableView.estimatedSectionHeaderHeight = 0;
+        self.tableView.contentInsetAdjustmentBehavior= UIScrollViewContentInsetAdjustmentNever;
+    }
     UILabel *headerView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, LNViewW, 40)];
     headerView.backgroundColor = [UIColor redColor];
     headerView.text = @"tableHeaderView";
