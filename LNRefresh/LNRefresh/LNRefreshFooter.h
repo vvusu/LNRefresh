@@ -11,7 +11,7 @@
 @class LNFooterAnimator;
 @interface LNRefreshFooter : LNRefreshComponent
 @property (nonatomic, assign, getter=isNoNoreData) BOOL noMoreData;   //显示没有更多数据
-//@property (nonatomic, assign, getter=isAutoRefresh) BOOL autoRefresh; //滑动到底部是否自动加载更多
+@property (nonatomic, assign, getter=isAutoRefresh) BOOL autoRefresh; //滑动到底部是否自动加载更多
 
 + (instancetype)initWithFrame:(CGRect)frame;
 

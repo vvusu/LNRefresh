@@ -28,6 +28,7 @@
     LNRefreshFooter *footer = [[LNRefreshFooter alloc]init];
     footer.animator = animator;
     footer.refreshBlock = block;
+    footer.autoRefresh = YES;
     return footer;
 }
 
@@ -74,17 +75,22 @@
         return;
     }
     if (progress >= 0) {
-        if (progress >= 1) {
-            if (!self.scrollView.isDragging) {
-                [self startRefreshing];
-                [self.animator refreshView:self state:LNRefreshState_Refreshing];
-            } else {
-                [self.animator refreshView:self state:LNRefreshState_WillRefresh];
-            }
+        if (self.isAutoRefresh) {
+            [self startRefreshing];
+            [self.animator refreshView:self state:LNRefreshState_Refreshing];
         } else {
-            [self.animator refreshView:self state:LNRefreshState_PullToRefresh];
+            if (progress >= 1) {
+                if (!self.scrollView.isDragging) {
+                    [self startRefreshing];
+                    [self.animator refreshView:self state:LNRefreshState_Refreshing];
+                } else {
+                    [self.animator refreshView:self state:LNRefreshState_WillRefresh];
+                }
+            } else {
+                [self.animator refreshView:self state:LNRefreshState_PullToRefresh];
+            }
+            [self.animator refreshView:self progress:progress];
         }
-        [self.animator refreshView:self progress:progress];
     }
     self.previousOffset = self.scrollView.contentOffset.y+self.scrollView.contentInset.top;
 }
