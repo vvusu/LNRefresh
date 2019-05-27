@@ -74,9 +74,6 @@
         return;
     }
     if (progress >= 0) {
-        if (self.isAutoRefresh) {
-            progress = 1;
-        }
         if (progress >= 1) {
             if (!self.scrollView.isDragging) {
                 [self startRefreshing];
@@ -87,9 +84,7 @@
         } else {
             [self.animator refreshView:self state:LNRefreshState_PullToRefresh];
         }
-        if (self.isAutoRefresh || self.scrollView.isDragging) {
-            [self.animator refreshView:self progress:progress];
-        }
+        [self.animator refreshView:self progress:progress];
     }
     self.previousOffset = self.scrollView.contentOffset.y+self.scrollView.contentInset.top;
 }
