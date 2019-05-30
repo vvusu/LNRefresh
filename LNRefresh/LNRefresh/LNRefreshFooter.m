@@ -74,7 +74,7 @@
         self.previousOffset = self.scrollView.contentOffset.y+self.scrollView.contentInset.top;
         return;
     }
-    if (progress >= 0) {
+    if (progress > 0) {
         if (self.isAutoRefresh) {
             [self startRefreshing];
             [self.animator refreshView:self state:LNRefreshState_Refreshing];

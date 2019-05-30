@@ -22,13 +22,6 @@
     return self;
 }
 
-- (NSLock *)lock {
-    if (!_lock) {
-        _lock = [[NSLock alloc]init];
-    }
-    return _lock;
-}
-
 - (void)setAnimatorView:(UIView *)animatorView {
     _animatorView = animatorView;
     [self setupSubViews];
@@ -59,8 +52,8 @@
 }
 
 - (void)setupSubViews {
+    dispatch_semaphore_t signal = dispatch_semaphore_create(1);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.lock lock];
         if (self.animatorView) {
             NSArray *views = [self.animatorView.subviews copy];
             for (UIView *view in views) {
@@ -71,8 +64,9 @@
                 [layer removeFromSuperlayer];
             }
         }
-        [self.lock unlock];
+        dispatch_semaphore_signal(signal);
     });
+    dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
 }
 
 - (void)layoutSubviews {}

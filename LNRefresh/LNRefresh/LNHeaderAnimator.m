@@ -141,7 +141,6 @@
 - (void)setupSubViews {
     [super setupSubViews];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.lock lock];
         if (!self.ignoreGlobSetting) {
             [self setupHeaderAnimator];
         }
@@ -158,7 +157,6 @@
                 break;
         }
         [self layoutSubviews];
-        [self.lock unlock];
     });
 }
 
