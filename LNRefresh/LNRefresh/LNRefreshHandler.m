@@ -25,8 +25,32 @@
     return refreshHandler;
 }
 
++ (NSBundle *)refreshBundle
+{
+    static NSBundle *refreshBundle = nil;
+    if (refreshBundle == nil) {
+        refreshBundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[LNRefreshAnimator class]]
+                                                  pathForResource:@"LNRefresh"
+                                                  ofType:@"bundle"]];
+    }
+    return refreshBundle;
+}
+
++ (UIImage *)bundleImage:(NSString *)imageName
+{
+    NSString *filePath = nil;
+    NSArray *array = [imageName componentsSeparatedByString:@"."];
+    if (array.count > 1) {
+        filePath = [[self refreshBundle] pathForResource:array.firstObject ofType:array.lastObject];
+    } else {
+        filePath = [[self refreshBundle] pathForResource:imageName ofType:@"png"];
+    }
+    UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+    return image;
+}
+
 + (NSDictionary *)localizedStringDic {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"LNRefresh.bundle/lnrefresh" ofType:@"json"];
+    NSString *filePath = [[self refreshBundle] pathForResource:@"lnrefresh" ofType:@"json"];
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
     if (!fileData) { return @{};}
     NSError *error = nil;

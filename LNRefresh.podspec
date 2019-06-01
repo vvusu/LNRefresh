@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/wedxz/LNRefresh.git", :tag => s.version }
   s.source_files = "LNRefresh/LNRefresh/*.{h,m}"
   s.exclude_files= "LNRefresh/*.plist"
-  s.resources    = "LNRefresh.bundle"
+  s.resources    = "LNRefresh/LNRefresh.bundle"
   s.requires_arc = true
 end

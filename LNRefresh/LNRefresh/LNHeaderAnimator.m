@@ -60,7 +60,7 @@
 - (UIImageView *)imageView {
     if (!_imageView) {
         _imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
-        _imageView.image = [UIImage imageNamed:@"LNRefresh.bundle/refresh_arrow.png"];
+        _imageView.image = [LNRefreshHandler bundleImage:@"refresh_arrow.png"];
     }
     return _imageView;
 }
