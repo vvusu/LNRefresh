@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: afd7c8f31a1387a454bd9a87265f6e6da469b6bb
+PODS:
+  - LNRefresh (1.0.5)
+
+DEPENDENCIES:
+  - LNRefresh
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - LNRefresh
+
+SPEC CHECKSUMS:
+  LNRefresh: 8ac75b79cf18c4a6020e93d67a97898d81a4e918
+
+PODFILE CHECKSUM: 25288db729dc6b0287f1be352c66d04b9c0206e2
 
 COCOAPODS: 1.7.0

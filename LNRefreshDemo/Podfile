@@ -6,7 +6,7 @@ target 'LNRefreshDemo' do
   use_frameworks!
 
   # Pods for LNRefreshDemo
-#  pod 'LNRefresh'
+  pod 'LNRefresh'
 
   target 'LNRefreshDemoTests' do
     inherit! :search_paths

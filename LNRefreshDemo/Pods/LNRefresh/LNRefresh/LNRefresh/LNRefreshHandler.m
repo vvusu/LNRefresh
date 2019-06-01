@@ -1,0 +1,107 @@
+//
+//  LNRefreshHandler.m
+//  LNRefresh
+//
+//  Created by vvusu on 7/21/17.
+//  Copyright © 2017 vvusu. All rights reserved.
+//
+
+#import "LNRefreshHandler.h"
+#import "LNRefreshAnimator.h"
+#import "LNFooterAnimator.h"
+
+@implementation LNRefreshHandler
+
++ (LNRefreshHandler *)defaultHandler {
+    static LNRefreshHandler *refreshHandler = nil;
+    static dispatch_once_t onceQuoteHandler;
+    dispatch_once(&onceQuoteHandler, ^{
+        refreshHandler = [[LNRefreshHandler alloc]init];
+        refreshHandler.headerType = -1;
+        refreshHandler.refreshTime = 0;
+        refreshHandler.stateImages = [NSMutableDictionary dictionary];
+        refreshHandler.localizedStringDic = [LNRefreshHandler localizedStringDic];
+    });
+    return refreshHandler;
+}
+
++ (NSBundle *)refreshBundle
+{
+    static NSBundle *refreshBundle = nil;
+    if (refreshBundle == nil) {
+        refreshBundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[LNRefreshAnimator class]]
+                                                  pathForResource:@"LNRefresh"
+                                                  ofType:@"bundle"]];
+    }
+    return refreshBundle;
+}
+
++ (UIImage *)bundleImage:(NSString *)imageName
+{
+    NSString *filePath = nil;
+    NSArray *array = [imageName componentsSeparatedByString:@"."];
+    if (array.count > 1) {
+        filePath = [[self refreshBundle] pathForResource:array.firstObject ofType:array.lastObject];
+    } else {
+        filePath = [[self refreshBundle] pathForResource:imageName ofType:@"png"];
+    }
+    UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+    return image;
+}
+
++ (NSDictionary *)localizedStringDic {
+    NSString *filePath = [[self refreshBundle] pathForResource:@"lnrefresh" ofType:@"json"];
+    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+    if (!fileData) { return @{};}
+    NSError *error = nil;
+    NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:&error];
+    NSArray *languages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+    NSString *currentLanguage = languages.firstObject;
+    if ([currentLanguage hasPrefix:@"en"]) {
+        currentLanguage = @"en";
+    } else if ([currentLanguage hasPrefix:@"zh"]) {
+        if ([currentLanguage rangeOfString:@"Hans"].location != NSNotFound) {
+            currentLanguage = @"zh-Hans";  // 简体中文
+        } else {
+            currentLanguage = @"zh-Hant";  //繁體中文(zh-Hant\zh-HK\zh-TW)
+        }
+    }
+    NSDictionary *localizedStringDic = [jsonDic valueForKey:currentLanguage];
+    if (!localizedStringDic) {
+        localizedStringDic = [jsonDic valueForKey:@"en"];
+    }
+    return localizedStringDic;
+}
+
++ (NSString *)localizedStringForKey:(NSString *)key {
+   return [[LNRefreshHandler defaultHandler].localizedStringDic valueForKey:key];
+}
+
++ (void)changeAllHeaderAnimatorType:(LNRefreshHeaderType)type {
+    [LNRefreshHandler changeAllHeaderAnimatorType:type bgImage:nil];
+}
+
++ (void)changeAllHeaderAnimatorType:(LNRefreshHeaderType)type bgImage:(UIImage *)image {
+    [LNRefreshHandler changeAllHeaderAnimatorType:type bgImage:image incremental:0];
+}
+
++ (void)changeAllHeaderAnimatorType:(LNRefreshHeaderType)type bgImage:(UIImage *)image incremental:(CGFloat)incremental {
+    [LNRefreshHandler defaultHandler].bgImage = image;
+    [LNRefreshHandler defaultHandler].headerType = type;
+    [LNRefreshHandler defaultHandler].incremental = incremental;
+    [[NSNotificationCenter defaultCenter] postNotificationName:LNRefreshChangeNotification object:nil];
+}
+
++ (void)setAllHeaderAnimatorStateImages:(NSArray *)stateImages state:(LNRefreshState)state {
+    [LNRefreshHandler setAllHeaderAnimatorStateImages:stateImages state:state duration:stateImages.count * 0.02];
+}
+
++ (void)setAllHeaderAnimatorStateImages:(NSArray *)stateImages state:(LNRefreshState)state duration:(NSTimeInterval)duration {
+    if (stateImages) {
+        NSDictionary *dic = @{@"images":stateImages, @"duration":[NSNumber numberWithDouble:duration]};
+        [[LNRefreshHandler defaultHandler].stateImages setValue:dic forKey:[NSString stringWithFormat:@"%ld",(long)state]];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:LNRefreshChangeNotification object:nil];
+}
+
+@end

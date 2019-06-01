@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "783CBFAC83609E24F720FB05994DA801"
-               BuildableName = "Pods-LNRefreshDemo.framework"
-               BlueprintName = "Pods-LNRefreshDemo"
+               BlueprintIdentifier = "C987E173FC9B4ED5342FC553235487AA"
+               BuildableName = "LNRefresh.framework"
+               BlueprintName = "LNRefresh"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

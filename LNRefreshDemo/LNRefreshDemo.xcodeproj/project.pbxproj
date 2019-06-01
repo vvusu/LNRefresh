@@ -36,7 +36,6 @@
 		AF348E2622A12B1800B26FE7 /* LNHeaderAnimator+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = AF348E1422A12B1800B26FE7 /* LNHeaderAnimator+Analysis.m */; };
 		AF348E2B22A12B3500B26FE7 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF348E2722A12B3500B26FE7 /* HomeVC.m */; };
 		AF348E2C22A12B3500B26FE7 /* DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF348E2822A12B3500B26FE7 /* DemoVC.m */; };
-		AF91815422A226430005C6A0 /* LNRefresh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF91815022A147D70005C6A0 /* LNRefresh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E38239FD50DB2953962999F2 /* Pods_LNRefreshDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5166645975177FFA973B348F /* Pods_LNRefreshDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,20 +55,6 @@
 			remoteInfo = LNRefreshDemo;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		AF91815522A226430005C6A0 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				AF91815422A226430005C6A0 /* LNRefresh.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		10A82066B4E46B2713FF8D4A /* Pods-LNRefreshDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNRefreshDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-LNRefreshDemoUITests/Pods-LNRefreshDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -391,7 +376,7 @@
 				AF348DB022A129F000B26FE7 /* Sources */,
 				AF348DB122A129F000B26FE7 /* Frameworks */,
 				AF348DB222A129F000B26FE7 /* Resources */,
-				AF91815522A226430005C6A0 /* Embed Frameworks */,
+				49AECCC32D585E3A4A8DE265 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -515,6 +500,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		49AECCC32D585E3A4A8DE265 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LNRefreshDemo/Pods-LNRefreshDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LNRefreshDemo/Pods-LNRefreshDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LNRefreshDemo/Pods-LNRefreshDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		999097D639F3CB4A778DB9D7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
