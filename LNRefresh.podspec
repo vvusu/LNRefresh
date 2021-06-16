@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LNRefresh"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "LNRefresh component"
   s.description  = <<-DESC
   LNTheme is a framework to integrate night mode to application written in OC.
