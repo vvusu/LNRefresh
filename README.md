@@ -54,7 +54,7 @@ pod 'LNRefresh'
 Installation with Cartfile:
 
 ```
-github "wedxz/LNRefresh"
+github "wszoo/LNRefresh"
 ```
 ## Documents
 #### How to use LNRefresh
